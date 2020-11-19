@@ -12,7 +12,7 @@ const chalk        = require('chalk');
 
 
 mongoose
-  .connect('mongodb://localhost/project-all-city-cocktails', {useNewUrlParser: true})
+  .connect('mongodb://localhost/project-all-city-cocktails', {useNewUrlParser: true, useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

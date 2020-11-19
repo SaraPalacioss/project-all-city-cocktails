@@ -35,7 +35,7 @@ border: 0px none #ffffff;
 button {
   margin-top: 15px;
 }
-.btn-parental {
+#btn-parental {
 
   border-radius: 25px;
   height: 22px;
@@ -66,7 +66,7 @@ button {
   outline:0; 
 }
 
-.btn-parental:hover {
+#btn-parental:hover {
   border: solid #99C624 1px;
   background: #7d1a98;
   background-image: -webkit-linear-gradient(top, rgb(132, 135, 133), #3DF680);

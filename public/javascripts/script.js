@@ -1,5 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('IronGenerator JS imported successfully!');
+// document.addEventListener('DOMContentLoaded', () => {
 
-}, false);
+  // const validateAge =()=>{
+	// const age = document.getElementById("age")
+	// if(age.value < 18) {
+	// 	return true
+	// }else{
+	// 	return false
+	// 	}
+  // }
+// }, false);
+
+
+
+
+
+  
+  // const parental = validateAge()
+  // module.exports = parental
+
