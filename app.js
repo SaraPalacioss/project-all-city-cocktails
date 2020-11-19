@@ -9,10 +9,20 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const chalk        = require('chalk');
+const passport      = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session       = require('express-session');
+const MongoStore            = require('connect-mongo')(session)
+
+const bcrypt        = require('bcrypt')
+const connect        = require('connect-ensure-login')
+const flash         = require('connect-flash')
+
 
 
 mongoose
-  .connect('mongodb://localhost/project-all-city-cocktails', {useNewUrlParser: true, useUnifiedTopology: true})
+  .connect(`mongodb+srv://${process.env.NAME}:${process.env.PASSWORD}@cluster0.jwvcc.mongodb.net/${process.env.DATABASE}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
+  
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -25,11 +35,64 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
+//CONFIGURACIÓN DE LAS COOKIES
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 
+  })
+}));
+
 // Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Middleware de Session
+app.use(session({secret: 'ourPassword', resave: true, saveUninitialized: true}))
+
+//Middleware para serializar al usuario
+passport.serializeUser((user, callback)=>{
+  callback(null, user._id)
+})
+
+//Middleware para des-serializar al usuario
+passport.deserializeUser((id, callback)=>{
+  User.findById(id)
+    .then((user) => callback(null, user))
+    .catch((err) => callback(err))
+})
+
+//Middleware de flash
+app.use(flash())
+
+//Middleware del Strategy
+passport.use(new LocalStrategy({passReqToCallback: true}, (req, username, password, next)=>{
+  User.findOne({username})
+    .then((user)=>{
+
+      if(!user){
+        return next(null, false, {message: "Incorrect username"})
+      }
+
+      if(!bcrypt.compareSync(password, user.password)){
+        return next(null, false, {message: "Incorrect password"})
+      }
+
+      return next(null, user)
+    })
+    .catch((err) => next(err))
+}))
+
+//Middleware de passport
+app.use(passport.initialize())
+app.use(passport.session())
+
+
+
 
 // Express View engine setup
 
@@ -50,12 +113,15 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'All city cocktails';
 
+const User = require('./models/User');
 
 
 const index = require('./routes/index');
 app.use('/', index);
-app.use('/error', index);
-app.use('/not-found', index);
+
+const auth = require('./routes/auth')
+app.use('/', auth);
+
 
 
 module.exports = app;
