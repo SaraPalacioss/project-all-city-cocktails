@@ -11,9 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	// }
 	
 	document.getElementById('getCocktail').addEventListener('click', ()=>{
-
+		
 		const name = document.getElementById("getCocktailInput").value;
-		axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=' + name)	
+		if(name === ''){
+			document.getElementById('noDataChecker').innerText = 'Enter some name'
+		} else {
+			axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=' + name)	
 			.then((result)=>{
 				document.getElementById('all-cocktails').innerText = ''
 				result.data.drinks.forEach((cocktail)=>{
@@ -23,8 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
 				})
 			})
 			.catch((error)=> console.log(error))
-	})
+	}
 
+		})
+		
+		$('.carousel').carousel({
+			interval: 2000
+		})
+
+
+
+
+
+
+		
 }, false);
 
 
