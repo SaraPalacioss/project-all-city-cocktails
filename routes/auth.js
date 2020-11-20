@@ -7,13 +7,13 @@ const ensureLogin = require('connect-ensure-login')
 const User = require('../models/User')
 
 //GET SIGN UP
-router.get('/signup', (req, res, next) => res.render('signup'));
+router.get('/signup', (req, res, next) => res.render('auth/signup'));
 
 //POST SIGN UP
 router.post('/signup', (req, res) => {
   const {username, password} = req.body
   if(username === '' || password === ''){
-    res.render('signup', {errorMessage: 'You have to fill all the fields'})
+    res.render('auth/signup', {errorMessage: 'You have to fill all the fields'})
     return
   }
 
@@ -23,10 +23,10 @@ router.post('/signup', (req, res) => {
         bcrypt.hash(password, 10)
           .then((hashedPassword)=>{
             User.create({username, password: hashedPassword})
-              .then(() => res.redirect('/'))
+              .then(() => res.redirect('/home'))
           })       
       } else {
-        res.render('signup', {errorMessage: 'This user already exists. Please, try again'})
+        res.render('auth/signup', {errorMessage: 'This user already exists. Please, try again'})
       }
     })
     .catch((err) => res.send(err)) 
@@ -34,12 +34,12 @@ router.post('/signup', (req, res) => {
 
 //GET LOG IN
 router.get('/login', (req, res) => {
-  res.render('login', {errorMessage: req.flash('error')})
+  res.render('auth/login', {errorMessage: req.flash('error')})
 })
 
 //POST SIGN UP
 router.post('/login', passport.authenticate("local", {
-  successRedirect: '/',
+  successRedirect: '/home',
   failureRedirect: '/login',
   failureFlash: true,
   passReqToCallback: true
@@ -49,6 +49,16 @@ router.post('/login', passport.authenticate("local", {
 router.get('/logout', (req, res)=>{
   req.logout()
   res.redirect('/')
+})
+
+
+router.get('/home', (req, res, next) => {
+  res.render('home',{ user: req.user })
+
+});
+
+router.get('/private', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/private', { user: req.user })
 })
 
 

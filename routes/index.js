@@ -6,23 +6,11 @@ const router  = express.Router();
 
 
 router.get('/', (req, res, next) => {
-  res.render('parental')
-  // if(parental>18){
-  //   console.log('ok')
-  // }else{
-  //   console.log('mal')
-  // }
+  res.render('parental', {layout: false})
+
 });
 
 
-router.get('/home', (req, res, next) => {
-  res.render('home')
-  // if(parental>18){
-  //   console.log('ok')
-  // }else{
-  //   console.log('mal')
-  // }
-});
 
 
 

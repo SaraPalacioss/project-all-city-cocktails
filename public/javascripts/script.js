@@ -1,11 +1,15 @@
+// SCRIPT FOR PARENTAL VIEW:
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	const confirmBtn= document.getElementById('btn-parental')
 
+	//Parental access configuration:
+	
+	const confirmBtn= document.getElementById('btn-parental')
+	
 	const disabledConfirmBtn=()=>confirmBtn.disabled = true;
 	const enabledConfirmBtn=()=>confirmBtn.disabled = false;
-
+	
 	
 	document.getElementById('btn-parental').addEventListener('click', ()=>{
 		
@@ -17,8 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			enabledConfirmBtn()
 		}
-	})
+})
+}, false);
+	
+		
+// SCRIPT FOR HOME VIEW:
 
+document.addEventListener('DOMContentLoaded', () => {
+
+	//Search cocktail by name:
 
 	document.getElementById('getCocktail').addEventListener('click', ()=>{
 		
@@ -31,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				document.getElementById('all-cocktails').innerText = ''
 				result.data.drinks.forEach((cocktail)=>{
 					const li = document.createElement('li')
-					li.innerText = cocktail.strDrink
+					li.innerHTML = 	cocktail.strDrink
+					li.href = "www.google.com"
 					document.getElementById('all-cocktails').append(li)
 				})
 			})
@@ -40,15 +52,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		})
 
-
-
-
-
-		
 }, false);
-
-
-
-
-
-
