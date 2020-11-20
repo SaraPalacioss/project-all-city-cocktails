@@ -1,5 +1,5 @@
 
-// document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   // const validateAge =()=>{
 	// const age = document.getElementById("age")
@@ -8,14 +8,27 @@
 	// }else{
 	// 	return false
 	// 	}
-  // }
-// }, false);
+	// }
+	
+	document.getElementById('getCocktail').addEventListener('click', ()=>{
+
+		const name = document.getElementById("getCocktailInput").value;
+		axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=' + name)	
+			.then((result)=>{
+				document.getElementById('all-cocktails').innerText = ''
+				result.data.drinks.forEach((cocktail)=>{
+					const li = document.createElement('li')
+					li.innerText = cocktail.strDrink
+					document.getElementById('all-cocktails').append(li)
+				})
+			})
+			.catch((error)=> console.log(error))
+	})
+
+}, false);
 
 
 
 
 
-  
-  // const parental = validateAge()
-  // module.exports = parental
 
