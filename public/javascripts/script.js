@@ -1,15 +1,25 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // const validateAge =()=>{
-	// const age = document.getElementById("age")
-	// if(age.value < 18) {
-	// 	return true
-	// }else{
-	// 	return false
-	// 	}
-	// }
+	const confirmBtn= document.getElementById('btn-parental')
+
+	const disabledConfirmBtn=()=>confirmBtn.disabled = true;
+	const enabledConfirmBtn=()=>confirmBtn.disabled = false;
+
 	
+	document.getElementById('btn-parental').addEventListener('click', ()=>{
+		
+		const age = document.getElementById("age").value;
+		if(age < 18 || age === ''){
+			disabledConfirmBtn()
+			document.getElementById('parental-advise').innerText = 'Sorry, You Are Not Allowed to Access This Page'
+			
+		} else {
+			enabledConfirmBtn()
+		}
+	})
+
+
 	document.getElementById('getCocktail').addEventListener('click', ()=>{
 		
 		const name = document.getElementById("getCocktailInput").value;
@@ -29,11 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 		})
-		
-		$('.carousel').carousel({
-			interval: 2000
-		})
-
 
 
 
