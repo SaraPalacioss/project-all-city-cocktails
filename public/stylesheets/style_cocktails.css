@@ -1,0 +1,12 @@
+
+html, body {
+  background-image: url('/images/1663630.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #FFF;
+  text-align: center;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+}

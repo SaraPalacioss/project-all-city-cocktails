@@ -35,15 +35,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-//CONFIGURACIÓN DE LAS COOKIES
-app.use(session({
-  secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
-  store: new MongoStore({
-    mongooseConnection: mongoose.connection,
-    ttl: 24 * 60 * 60 
-  })
-}));
+
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -52,7 +44,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Middleware de Session
-app.use(session({secret: 'ourPassword', resave: true, saveUninitialized: true}))
+app.use(session({secret:'ourPassword', resave: true, saveUninitialized: true}))
 
 //Middleware para serializar al usuario
 passport.serializeUser((user, callback)=>{
@@ -93,6 +85,16 @@ app.use(passport.session())
 
 
 
+//CONFIGURACIÓN DE LAS COOKIES
+app.use(session({
+  secret: "ourPassword",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 
+  })
+}));
+
 
 // Express View engine setup
 
@@ -102,6 +104,8 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
+
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

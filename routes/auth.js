@@ -48,7 +48,7 @@ router.post('/login', passport.authenticate("local", {
 
 router.get('/logout', (req, res)=>{
   req.logout()
-  res.redirect('/')
+  res.redirect('/home')
 })
 
 
@@ -57,9 +57,23 @@ router.get('/home', (req, res, next) => {
 
 });
 
-router.get('/private', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/private', { user: req.user })
+router.get('/cocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/cocktails', { user: req.user })
 })
+
+router.get('/myprofile', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/myprofile', { user: req.user })
+})
+
+router.get('/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/mycocktails', { user: req.user })
+})
+
+router.get('/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/myfavourites', { user: req.user })
+})
+
+
 
 
 

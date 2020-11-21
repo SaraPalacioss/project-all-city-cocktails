@@ -1,6 +1,8 @@
 // SCRIPT FOR PARENTAL VIEW:
 
 document.addEventListener('DOMContentLoaded', () => {
+	
+
 
 
 	//Parental access configuration:
@@ -51,5 +53,30 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 		})
+
+
+	//Search cocktail by ingredient:
+
+	document.getElementById('getCocktail').addEventListener('click', ()=>{
+			
+		const name = document.getElementById("getCocktailInput").value;
+		if(name === ''){
+			document.getElementById('noDataChecker').innerText = 'Enter some name'
+		} else {
+			axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=' + name)	
+			.then((result)=>{
+				document.getElementById('all-cocktails').innerText = ''
+				result.data.drinks.forEach((cocktail)=>{
+					const li = document.createElement('li')
+					li.innerHTML = 	cocktail.strDrink
+					li.href = "www.google.com"
+					document.getElementById('all-cocktails').append(li)
+				})
+			})
+			.catch((error)=> console.log(error))
+	}
+
+		})
+
 
 }, false);

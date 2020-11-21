@@ -30,11 +30,11 @@
   <div id="navbarBasicExample" class="navbar-menu">
 
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a class="navbar-item" href="/home">
         Home
       </a>
 
-      <a class="navbar-item">
+      <a class="navbar-item" href="/cocktails">
         Coktails
       </a>
 
@@ -44,13 +44,13 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a class="navbar-item" href="/mycocktails">
             My cocktails
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" href="/myfavourites">
             My favorites
           </a>
-          <a class="navbar-item" >
+          <a class="navbar-item" href="/myprofile">
             My profile
           </a>
           <hr class="navbar-divider">
@@ -61,7 +61,8 @@
       </div>
     </div>
 
-{{/if}}
+{{else}}
+
 
     <div class="navbar-end">
       <div class="navbar-item">
@@ -75,6 +76,7 @@
         </div>
       </div>
     </div>
+    {{/if}}
   </div>
 
 </nav>
