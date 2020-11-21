@@ -7,13 +7,13 @@ const ensureLogin = require('connect-ensure-login')
 const User = require('../models/User')
 
 //GET SIGN UP
-router.get('/signup', (req, res, next) => res.render('auth/signup'));
+router.get('/signup', (req, res, next) => res.render('auth/Access/signup'));
 
 //POST SIGN UP
 router.post('/signup', (req, res) => {
   const {username, password} = req.body
   if(username === '' || password === ''){
-    res.render('auth/signup', {errorMessage: 'You have to fill all the fields'})
+    res.render('auth/Access/signup', {errorMessage: 'You have to fill all the fields'})
     return
   }
 
@@ -26,7 +26,7 @@ router.post('/signup', (req, res) => {
               .then(() => res.redirect('/home'))
           })       
       } else {
-        res.render('auth/signup', {errorMessage: 'This user already exists. Please, try again'})
+        res.render('auth/Access/signup', {errorMessage: 'This user already exists. Please, try again'})
       }
     })
     .catch((err) => res.send(err)) 
@@ -34,7 +34,7 @@ router.post('/signup', (req, res) => {
 
 //GET LOG IN
 router.get('/login', (req, res) => {
-  res.render('auth/login', {errorMessage: req.flash('error')})
+  res.render('auth/Access/login', {errorMessage: req.flash('error')})
 })
 
 //POST SIGN UP
@@ -58,20 +58,37 @@ router.get('/home', (req, res, next) => {
 });
 
 router.get('/cocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/cocktails', { user: req.user })
+  res.render('auth/Cocktails/cocktails', { user: req.user })
+})
+
+router.get('/cocktails/alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/alcohol', { user: req.user })
+})
+
+router.get('/cocktails/no-alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/no-alcohol', { user: req.user })
+})
+
+router.get('/cocktails/no-alcohol/details', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/no-alcohol/details', { user: req.user })
+})
+
+router.get('/cocktails/alcohol/details', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/details', { user: req.user })
 })
 
 router.get('/myprofile', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/myprofile', { user: req.user })
+  res.render('auth/MyAccount/myprofile', { user: req.user })
 })
 
 router.get('/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/mycocktails', { user: req.user })
+  res.render('auth/MyAccount/mycocktails', { user: req.user })
 })
 
 router.get('/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/myfavourites', { user: req.user })
+  res.render('auth/MyAccount/myfavourites', { user: req.user })
 })
+
 
 
 
