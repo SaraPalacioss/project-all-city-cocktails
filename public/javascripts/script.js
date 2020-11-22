@@ -1,28 +1,3 @@
-// SCRIPT FOR PARENTAL VIEW:
-
-document.addEventListener('DOMContentLoaded', () => {
-	
-	//Parental access configuration:
-	
-	const confirmBtn= document.getElementById('btn-parental')
-	
-	const disabledConfirmBtn=()=>confirmBtn.disabled = true;
-	const enabledConfirmBtn=()=>confirmBtn.disabled = false;
-	
-	
-	document.getElementById('btn-parental').addEventListener('click', ()=>{
-		
-		const age = document.getElementById("age").value;
-		if(age < 18 || age === ''){
-			disabledConfirmBtn()
-			document.getElementById('parental-advise').innerText = 'Sorry, You Are Not Allowed to Access This Page'
-			
-		} else {
-			enabledConfirmBtn()
-		}
-})
-}, false);
-	
 		
 // SCRIPT FOR HOME VIEW:
 
@@ -88,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.getElementById('resultByNoAlcohol').innerText = ''
 			result.data.drinks.forEach((cocktail)=>{
 				const li = document.createElement('li')
-				li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
+				li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details">${cocktail.strDrink}</a></p>`
 				document.getElementById('resultByNoAlcohol').append(li)
 			})
 		})
@@ -104,13 +79,52 @@ document.addEventListener('DOMContentLoaded', () => {
 	.then((result)=>{
 		document.getElementById('resultByAlcohol').innerText = ''
 		result.data.drinks.forEach((cocktail)=>{
-			const li = document.createElement('li')
-			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
+			const li = document.createElement('li')			
+			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details?id=${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
+
 			document.getElementById('resultByAlcohol').append(li)
+ 
 		})
 	})
 	.catch((error)=> console.log(error))
 }, false);
 
 
+// document.addEventListener('DOMContentLoaded', () => {
+				
+// 	axios.post('/cocktails/alcohol/details?id=' + id)
+// 		.then((id)=>{
+// 			axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?iid=' + data)	
+			
+			
+			
+// 				const cocktailName = getElementById('cocktail-name')
+// 				const cocktailId = getElementById('cocktail-id')
+// 				const cocktailCategory = getElementById('cocktail-categoy')
+// 				const cocktailAlcohol = getElementById('cocktail-alcohol')
+// 				const cocktailInstructions = getElementById('cocktail-instructions')
+// 				const cocktailPhoto = getElementById('cocktail-photo')
+// 				const cocktailIngredients = getElementById('cocktail-ingredientes')
 	
+// 				cocktailName.innerHTML = cocktail.strDrink
+// 				cocktailId.innerHTML = cocktail.idDrink
+// 				cocktailCategory.innerHTML = cocktail.strCategory
+// 				cocktailAlcohol.innerHTML = cocktail.strAlcoholic
+// 				cocktailInstructions.innerHTML = cocktail.strInstructions
+// 				cocktailPhoto.innerHTML = cocktail.strDrinkThumb
+// 				cocktailIngredients.innerHTML = cocktail.strDrinkThumb
+	 
+
+			
+
+ 
+		
+// 	})
+// 	.catch((error)=> console.log(error))
+// }, false);
+
+
+					
+
+
+

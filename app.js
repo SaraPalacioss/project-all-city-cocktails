@@ -120,8 +120,7 @@ app.locals.title = 'All city cocktails';
 const User = require('./models/User');
 
 
-const index = require('./routes/index');
-app.use('/', index);
+
 
 const auth = require('./routes/auth')
 app.use('/', auth);

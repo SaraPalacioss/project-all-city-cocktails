@@ -23,7 +23,7 @@ router.post('/signup', (req, res) => {
         bcrypt.hash(password, 10)
           .then((hashedPassword)=>{
             User.create({username, password: hashedPassword})
-              .then(() => res.redirect('/home'))
+              .then(() => res.redirect('/'))
           })       
       } else {
         res.render('auth/Access/signup', {errorMessage: 'This user already exists. Please, try again'})
@@ -39,7 +39,7 @@ router.get('/login', (req, res) => {
 
 //POST SIGN UP
 router.post('/login', passport.authenticate("local", {
-  successRedirect: '/home',
+  successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: true,
   passReqToCallback: true
@@ -48,11 +48,11 @@ router.post('/login', passport.authenticate("local", {
 
 router.get('/logout', (req, res)=>{
   req.logout()
-  res.redirect('/home')
+  res.redirect('/')
 })
 
 
-router.get('/home', (req, res, next) => {
+router.get('/', (req, res, next) => {
   res.render('home',{ user: req.user })
 
 });
