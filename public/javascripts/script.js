@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//List of alcohol cocktails:	
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
 				
 	axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic')	
@@ -81,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		result.data.drinks.forEach((cocktail)=>{
 			const li = document.createElement('li')			
 			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details?id=${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
-
 			document.getElementById('resultByAlcohol').append(li)
  
 		})
@@ -124,7 +125,28 @@ document.addEventListener('DOMContentLoaded', () => {
 // }, false);
 
 
-					
+					//List of alcohol cocktails:	
 
+document.addEventListener('DOMContentLoaded', () => {
+	let currentURL = window.location.href
+	let id = currentURL.substring(currentURL.lastIndexOf('=') + 1);
+
+	axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`)	
+	.then((result)=>{
+		
+		console.log(id)
+	console.log(result)
+	console.log(result.data.drinks.strDrink)
+	console.log(result.data.drinks[0].strDrink)
+	console.log(result.data.drinks[1].strDrink)
+	
+			document.getElementById('cocktail-name').innerHTML = `${result.data.drinks[0].strDrink}`
+			document.getElementById('ejemplo').innerHTML = 'sara'
+
+
+ 
+	})
+	.catch((error)=> console.log(error))
+}, false);
 
 
