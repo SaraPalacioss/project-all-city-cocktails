@@ -132,6 +132,11 @@ router.post('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res, n
   })
   });
 
+// RENDER NEW COCKTAIL FORM
+router.get('/myaccount/new-cocktail', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/MyAccount/newCocktailForm', { user: req.user })
+})
+
 //GET MYACCOUNT/MYFAVOURITES
 
 router.get('/myaccount/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
@@ -144,7 +149,7 @@ router.get('/myaccount/mycocktails', (req, res, next) => {
   Celebrity.find({}, {name: 1})
   .then((cocktail) => {
     console.log(cocktail)
-    res.render('auth/MyAccount/mycocktails', {cocktail});
+    res.render('/myaccount/mycocktails/:id', {cocktail});
     
   })
   .catch((err) => {
@@ -154,14 +159,62 @@ router.get('/myaccount/mycocktails', (req, res, next) => {
   
 })
 
+// GET MYCOCKTAILS INFO
+router.get('/myaccount/mycocktails/details/:id', (req, res, next) =>{
+  const id = req.params.id
+  Cocktails.findById(id)
+  .then((result)=>{
+    res.render('auth/MyAccount/details', result);
+  })
+
+  .catch((err)=> {
+    console.log(err)
+    res.render('error')
+})
+})
+
+// RENDER EDIT COCKTAIL FORM
+router.get('/myaccount/mycocktails/details/:id/edit', (req, res, next)=>{
+  const id = req.params.id
+  Cocktails.findById(id)
+  .then((result)=>{
+      res.render('auth/MyAccount/editCocktailForm', result)
+  })
+  .catch((err)=>{
+      console.log(err)
+      res.render('error')
+  })
+  
+})
+
+//EDIT COCKTAIL  
+router.post('/myaccount/mycocktails/details/:id/edit', (req, res, next)=>{
+  const id = req.params.id
+  const editedCocktail = req.body
+  Cocktails.findByIdAndUpdate(id, editedCocktail)
+  .then(()=>{
+    res.redirect('/myaccount/mycocktails')
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.render('error')
+  })
+
+})
 
 
-
-
-
-
-
-
+// DELETE COCKTAIL
+router.post('/myaccount/mycocktails/details/:id/delete', (req, res, next) =>{
+  const id = req.params.id
+  Cocktails.findByIdAndRemove(id)
+  .then(()=>{
+    res.redirect('/myaccount/mycocktails');
+  })
+  .catch((err)=> {
+      console.log(err)
+      res.render('error')
+  })
+})
 
 
 module.exports = router;
