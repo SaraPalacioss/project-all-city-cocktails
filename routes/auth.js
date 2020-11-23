@@ -4,7 +4,9 @@ const bcrypt      = require('bcrypt')
 const passport    = require('passport')
 const ensureLogin = require('connect-ensure-login')
 
-const User = require('../models/User')
+const User = require('../models/User');
+const Cocktails = require('../models/Cocktails');
+
 
 //GET SIGN UP
 router.get('/signup', (req, res, next) => res.render('auth/Access/signup'));
@@ -46,48 +48,113 @@ router.post('/login', passport.authenticate("local", {
 }))
 
 
-router.get('/logout', (req, res)=>{
+//GET LOG OUT
+
+router.get('/myaccount/logout', (req, res)=>{
   req.logout()
   res.redirect('/')
 })
 
+//GET HOME
 
 router.get('/', (req, res, next) => {
   res.render('home',{ user: req.user })
 
 });
 
+//GET COCKTAILS MENU
+
 router.get('/cocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/cocktails', { user: req.user })
 })
+
+//GET COCKTAILS/ALCOHOL
 
 router.get('/cocktails/alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/alcohol', { user: req.user })
 })
 
+//GET COCKTAILS/NO-ALCOHOL
+
 router.get('/cocktails/no-alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/no-alcohol', { user: req.user })
 })
+
+//GET COCKTAILS/ALCOHOL/DETAILS
+router.get('/cocktails/alcohol/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/details', { user: req.user })
+})
+
+//GET COCKTAILS/NO-ALCOHOL/DETAILS
 
 router.get('/cocktails/no-alcohol/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/details', { user: req.user })
 })
 
-router.get('/cocktails/alcohol/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/Cocktails/details', { user: req.user })
-})
+//GET MYACCOUNT/MYPROFILE
 
-router.get('/myprofile', ensureLogin.ensureLoggedIn(), (req, res)=>{
+router.get('/myaccount/myprofile', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/MyAccount/myprofile', { user: req.user })
 })
 
-router.get('/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/MyAccount/mycocktails', { user: req.user })
+//GET MYACCOUNT/MYCOCKTAILS
+
+// router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
+//   res.render('auth/MyAccount/mycocktails', { user: req.user })
+// })
+
+router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Cocktails.find({}, {strDrink: 1})
+  .then((cocktail) => {
+    console.log(cocktail)
+    res.render('auth/MyAccount/mycocktails', {cocktail});
+    
+  })
+  .catch((err) => {
+    console.log(err)
+    res.render('error')
+  })
+  
 })
+
+//POST  MYACCOUNT/MYCOCKTAILS
+
+router.post('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res, next)=>{
+  const { strDrink,strCategory,strAlcoholic,strGlass,strInstructions,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13} = req.body
+  const newCocktail = req.body
+  Cocktails.create(newCocktail)
+  .then((result)=>{
+    res.redirect('/myaccount/mycocktails')
+  })
+  .catch((err)=> {
+    console.log(err)
+    res.render('error');
+  })
+  });
+
+//GET MYACCOUNT/MYFAVOURITES
 
 router.get('/myaccount/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/MyAccount/myfavourites', { user: req.user })
 })
+
+
+// GET ALL CELEBRITIES LIST
+router.get('/myaccount/mycocktails', (req, res, next) => {
+  Celebrity.find({}, {name: 1})
+  .then((cocktail) => {
+    console.log(cocktail)
+    res.render('auth/MyAccount/mycocktails', {cocktail});
+    
+  })
+  .catch((err) => {
+    console.log(err)
+    res.render('error')
+  })
+  
+})
+
+
 
 
 

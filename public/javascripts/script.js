@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			document.getElementById('resultByNoAlcohol').innerText = ''
 			result.data.drinks.forEach((cocktail)=>{
 				const li = document.createElement('li')
-				li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details">${cocktail.strDrink}</a></p>`
+				li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/no-alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
 				document.getElementById('resultByNoAlcohol').append(li)
 			})
 		})
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.getElementById('resultByAlcohol').innerText = ''
 		result.data.drinks.forEach((cocktail)=>{
 			const li = document.createElement('li')			
-			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a id="getID" href="/cocktails/alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
+			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
 			document.getElementById('resultByAlcohol').append(li)
  
 
@@ -105,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`)	
 	.then((result)=>{
-	
+
+
 
 	
 	let cocktailName = result.data.drinks[0].strDrink
@@ -114,8 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	let cocktailAlcohol = result.data.drinks[0].strAlcoholic
 	let cocktailInstructions = result.data.drinks[0].strInstructions
 	let cocktailImg = result.data.drinks[0].strDrinkThumb
-	let cocktailIngredients = result.data.drinks[0].strDrinkThumb
-	let cocktailMeasure = result.data.drinks[0].strDrinkThumb
+
 
 
 
@@ -125,12 +125,68 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('cocktail-category').innerText = cocktailCategory
 	document.getElementById('cocktail-alcohol').innerText = cocktailAlcohol
 	document.getElementById('cocktail-instructions').innerText = cocktailInstructions
-	document.getElementById('cocktail-img').innerText = cocktailImg
-	document.getElementById('cocktail-ingredients').innerText = cocktailIngredients
+	document.getElementById('cocktail-img').innerHTML = `<img src="${cocktailImg}" alt="cocktail-img">`
+	document.getElementById('resultIngredients').innerText = ''
 
+
+const ingredientsArr = []
+ingredientsArr.push(result.data.drinks[0].strIngredient1)
+ingredientsArr.push(result.data.drinks[0].strIngredient2)
+ingredientsArr.push(result.data.drinks[0].strIngredient3)
+ingredientsArr.push(result.data.drinks[0].strIngredient4)
+ingredientsArr.push(result.data.drinks[0].strIngredient5)
+ingredientsArr.push(result.data.drinks[0].strIngredient6)
+ingredientsArr.push(result.data.drinks[0].strIngredient7)
+ingredientsArr.push(result.data.drinks[0].strIngredient8)
+ingredientsArr.push(result.data.drinks[0].strIngredient9)
+ingredientsArr.push(result.data.drinks[0].strIngredient10)
+ingredientsArr.push(result.data.drinks[0].strIngredient11)
+ingredientsArr.push(result.data.drinks[0].strIngredient12)
+ingredientsArr.push(result.data.drinks[0].strIngredient13)
+ingredientsArr.push(result.data.drinks[0].strIngredient14)
+ingredientsArr.push(result.data.drinks[0].strIngredient15)
+
+const meassureArr = []
+meassureArr.push(result.data.drinks[0].strMeasure1)
+meassureArr.push(result.data.drinks[0].strMeasure2)
+meassureArr.push(result.data.drinks[0].strMeasure3)
+meassureArr.push(result.data.drinks[0].strMeasure4)
+meassureArr.push(result.data.drinks[0].strMeasure5)
+meassureArr.push(result.data.drinks[0].strMeasure6)
+meassureArr.push(result.data.drinks[0].strMeasure7)
+meassureArr.push(result.data.drinks[0].strMeasure8)
+meassureArr.push(result.data.drinks[0].strMeasure9)
+meassureArr.push(result.data.drinks[0].strMeasure10)
+meassureArr.push(result.data.drinks[0].strMeasure11)
+meassureArr.push(result.data.drinks[0].strMeasure12)
+meassureArr.push(result.data.drinks[0].strMeasure13)
+meassureArr.push(result.data.drinks[0].strMeasure14)
+meassureArr.push(result.data.drinks[0].strMeasure15)
+
+
+
+let i=0
+let li=''
+
+while(ingredientsArr[i] !== null && i<15){
+	li= document.createElement('li')
+	li.innerHTML = ingredientsArr[i]
+	document.getElementById('resultIngredients').append(li)
+	i++
+}
+
+i=0
+
+while(meassureArr[i] !== null && i<15){
+	li= document.createElement('li')
+	li.innerHTML = meassureArr[i]
+	document.getElementById('resultMeasure').append(li)
+	i++
+}
 		
-
-	
+		
+		
+		
 
  
 	})
