@@ -69,11 +69,11 @@ router.get('/cocktails/no-alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/no-alcohol', { user: req.user })
 })
 
-router.get('/cocktails/no-alcohol/details', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/Cocktails/no-alcohol/details', { user: req.user })
+router.get('/cocktails/no-alcohol/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/details', { user: req.user })
 })
 
-router.get('/cocktails/alcohol/details', ensureLogin.ensureLoggedIn(), (req, res)=>{
+router.get('/cocktails/alcohol/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/details', { user: req.user })
 })
 
@@ -85,7 +85,7 @@ router.get('/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/MyAccount/mycocktails', { user: req.user })
 })
 
-router.get('/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
+router.get('/myaccount/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/MyAccount/myfavourites', { user: req.user })
 })
 

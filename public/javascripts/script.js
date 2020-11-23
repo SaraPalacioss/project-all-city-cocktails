@@ -82,71 +82,60 @@ document.addEventListener('DOMContentLoaded', () => {
 		document.getElementById('resultByAlcohol').innerText = ''
 		result.data.drinks.forEach((cocktail)=>{
 			const li = document.createElement('li')			
-			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details?id=${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
+			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a id="getID" href="/cocktails/alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
 			document.getElementById('resultByAlcohol').append(li)
  
+
+
+
+			
 		})
 	})
 	.catch((error)=> console.log(error))
 }, false);
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-				
-// 	axios.post('/cocktails/alcohol/details?id=' + id)
-// 		.then((id)=>{
-// 			axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?iid=' + data)	
-			
-			
-			
-// 				const cocktailName = getElementById('cocktail-name')
-// 				const cocktailId = getElementById('cocktail-id')
-// 				const cocktailCategory = getElementById('cocktail-categoy')
-// 				const cocktailAlcohol = getElementById('cocktail-alcohol')
-// 				const cocktailInstructions = getElementById('cocktail-instructions')
-// 				const cocktailPhoto = getElementById('cocktail-photo')
-// 				const cocktailIngredients = getElementById('cocktail-ingredientes')
-	
-// 				cocktailName.innerHTML = cocktail.strDrink
-// 				cocktailId.innerHTML = cocktail.idDrink
-// 				cocktailCategory.innerHTML = cocktail.strCategory
-// 				cocktailAlcohol.innerHTML = cocktail.strAlcoholic
-// 				cocktailInstructions.innerHTML = cocktail.strInstructions
-// 				cocktailPhoto.innerHTML = cocktail.strDrinkThumb
-// 				cocktailIngredients.innerHTML = cocktail.strDrinkThumb
-	 
-
-			
-
- 
-		
-// 	})
-// 	.catch((error)=> console.log(error))
-// }, false);
-
-
-					//List of alcohol cocktails:	
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
 	let currentURL = window.location.href
-	let id = currentURL.substring(currentURL.lastIndexOf('=') + 1);
+	let id = currentURL.substring(currentURL.lastIndexOf('/') + 1);
+
 
 	axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`)	
 	.then((result)=>{
-		
-		console.log(id)
-	console.log(result)
-	console.log(result.data.drinks.strDrink)
-	console.log(result.data.drinks[0].strDrink)
-	console.log(result.data.drinks[1].strDrink)
 	
-			document.getElementById('cocktail-name').innerHTML = `${result.data.drinks[0].strDrink}`
-			document.getElementById('ejemplo').innerHTML = 'sara'
 
+	
+	let cocktailName = result.data.drinks[0].strDrink
+	let cocktailId = result.data.drinks[0].idDrink
+	let cocktailCategory = result.data.drinks[0].strCategory
+	let cocktailAlcohol = result.data.drinks[0].strAlcoholic
+	let cocktailInstructions = result.data.drinks[0].strInstructions
+	let cocktailImg = result.data.drinks[0].strDrinkThumb
+	let cocktailIngredients = result.data.drinks[0].strDrinkThumb
+	let cocktailMeasure = result.data.drinks[0].strDrinkThumb
+
+
+
+
+	document.getElementById('cocktail-name').innerText = cocktailName
+	document.getElementById('cocktail-id').innerText = cocktailId
+	document.getElementById('cocktail-category').innerText = cocktailCategory
+	document.getElementById('cocktail-alcohol').innerText = cocktailAlcohol
+	document.getElementById('cocktail-instructions').innerText = cocktailInstructions
+	document.getElementById('cocktail-img').innerText = cocktailImg
+	document.getElementById('cocktail-ingredients').innerText = cocktailIngredients
+
+		
+
+	
 
  
 	})
 	.catch((error)=> console.log(error))
 }, false);
+
 
 
