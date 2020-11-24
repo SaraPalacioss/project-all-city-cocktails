@@ -66,9 +66,6 @@ router.get('/cocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
 })
 
 
-router.get('/cocktails/search', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/Cocktails/searchResults', { user: req.user })
-})
 
 //GET COCKTAILS/ALCOHOL/DETAILS
 router.get('/cocktails/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{

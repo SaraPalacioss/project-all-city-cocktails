@@ -54,13 +54,20 @@ html, body {
   margin-left: 20%;
 }
 
+.search {
+  
+  width: 155px;
+  height: 258px;
+  
+}
+
 .background-form {
 
 
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  margin-top: 14%;
+  margin-top: 10%;
   padding: 20px;
 
 background:rgba(245, 245, 245,0.9);
@@ -261,9 +268,8 @@ text-decoration: underline;
 
   width: 200px;
   height: 260px;
-  margin-left: 28%;
+  margin-left: 20%;
 }
-
 
 
 
