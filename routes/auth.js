@@ -97,9 +97,9 @@ router.get('/myaccount/myprofile', ensureLogin.ensureLoggedIn(), (req, res)=>{
 //GET MYACCOUNT/MYCOCKTAILS
 
 router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res) => {
-  Cocktails.find({}, {strDrink: 1})
+  Cocktails.find({owner: req.user._id})
   .then((cocktail) => {
-    res.render('auth/MyAccount/mycocktails', {cocktail});
+    res.render('auth/MyAccount/mycocktails', {cocktail, user: req.user });
   })
   .catch((err) => res.render('error'))
 })
@@ -108,7 +108,7 @@ router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res) =>
 
 router.post('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
   const { strDrink,strCategory,strAlcoholic,strGlass,strInstructions,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13} = req.body
-  const newCocktail = req.body
+  const newCocktail = {...req.body, owner: req.user._id}
   Cocktails.create(newCocktail)
   .then((result)=>{
     res.redirect('/myaccount/mycocktails')
@@ -122,20 +122,8 @@ router.get('/myaccount/new-cocktail', ensureLogin.ensureLoggedIn(), (req, res)=>
   res.render('auth/MyAccount/newCocktailForm', { user: req.user })
 })
 
-// GET ALL COCKTAILS LIST
-router.get('/myaccount/mycocktails',ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  Cocktails.find({}, {name: 1})
-  .then((cocktail) => {
-    console.log(cocktail)
-    res.render('/myaccount/mycocktails/:id', {cocktail});
-    
-  })
-  .catch((err) => {
-    console.log(err)
-    res.render('error')
-  })
-  
-})
+
+
 
 // GET MYCOCKTAILS INFO
 router.get('/myaccount/mycocktails/details/:id',ensureLogin.ensureLoggedIn(), (req, res, next) =>{
@@ -152,35 +140,6 @@ router.get('/myaccount/mycocktails/details/:id',ensureLogin.ensureLoggedIn(), (r
 })
 
 
-// RENDER EDIT USER FORM
-router.get('/login/:id',ensureLogin.ensureLoggedIn(), (req, res)=>{
-  const id = req.params.id
-  User.findById(id)
-  .then((result)=>{
-      res.render('auth/Access/editlogin', result)
-  })
-  .catch((err)=>{
-      console.log(err)
-      res.render('error')
-  })
-  
-})
-
-
-//EDIT USER  
-router.post('/login/:id',ensureLogin.ensureLoggedIn(), (req, res, next)=>{
-  const id = req.params.id
-  const editedUser= req.body
-  User.findOneAndUpdate(id, editedUser)
-  .then((result)=>{
-    res.render('auth/Access/editlogin', result)
-  })
-  .catch((err)=>{
-    console.log(err)
-    res.render('error')
-  })
-
-})
 
 
 // RENDER EDIT COCKTAIL FORM

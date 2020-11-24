@@ -6,28 +6,52 @@
   <label for="strDrink">Name: </label>
   <input type="text" name="strDrink" id="strDrink" value="{{strDrink}}">
 
-  <br >
+  <br>
 
   <label for="strCategory">Category: </label>
-  <input type="text" name="strCategory" id="strCategory" value="{{strCategory}}">
+  <select name="strCategory" id="strCategory" value="{{strCategory}}">
 
-  <br >
+
+  
+<option value="0" selected>Seleccione... 
+<option value="1">Cocktail
+<option value="2">Shot 
+<option value="3">Ordinary Drink 
+ 
+</select>
+
+
+
+ <br>
 
   <label for="strAlcoholic">Alcoholic: </label>
-  <input type="text" name="strAlcoholic" id="strAlcoholic" value="{{strAlcoholic}}">
+  <select name="strAlcoholic" id="strAlcoholic" value="{{strAlcoholic}}">
+<option value="0" selected>Seleccione... 
+<option value="1">Alcoholic
+<option value="2">Non alcoholic 
 
-  <br >
+ 
+</select>
+  <br>
 
   <label for="strGlass">Glass: </label>
-  <input type="text" name="strGlass" id="strGlass" value="{{strGlass}}">
+  <select name="strGlass" id="strGlass" value="{{strGlass}}">
+<option value="0" selected>Seleccione... 
+<option value="1">Beer mug
+<option value="2">Cocktails glass 
+<option value="3">Coffee mug
+<option value="4">Collins Glass 
+  <option value="5">Highball Glass
+<option value="6">Shot glass 
 
-  <br >
+</select>
 
+<br>
   <label for="strInstructions">Instructions: </label>
   <textarea name="strInstructions" id="strInstructions" rows="10" cols="40" value="{{strInstructions}}">Escribe aquí tus comentarios</textarea>
 
 
-  <br >
+  <br>
 
  
   <label for="strIngredient1">Ingredient 1: </label>
