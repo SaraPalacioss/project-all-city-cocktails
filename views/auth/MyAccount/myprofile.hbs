@@ -1,2 +1,12 @@
-{{username}}
+
 <p>este es mi perfil</p>
+
+{{#if user}}
+  <p>Name: {{user.name}}</p>
+  <p>Lastname: {{user.lastName}}</p>
+  <p>Email: {{user.username}}</p>
+  
+
+{{/if}}
+
+<a href="/login/{{id}}">Edit account</a>

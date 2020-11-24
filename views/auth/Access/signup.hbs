@@ -1,7 +1,20 @@
 <form action="/signup" method="POST" >
+
 <div>
-    <label class ="form-label" for="username">Email: </label>
-  <input class ="form-imput" type="email" id="username" name="username">
+    <label class ="form-label" for="name">Name: </label>
+  <input class ="form-imput" type="text" id="name" name="name">
+</div>
+
+<div>
+    <label class ="form-label" for="lastName">Lastname: </label>
+  <input class ="form-imput" type="text" id="lastName" name="lastName">
+</div>
+
+
+
+<div>
+    <label class ="form-label" for="username">username: </label>
+  <input class ="form-imput" type="username" id="username" name="username">
 </div>
 
   <div>
@@ -14,7 +27,7 @@
   </div>
   
   
-  
+    
 
   {{#if errorMessage}}
     <p>{{errorMessage}}</p>

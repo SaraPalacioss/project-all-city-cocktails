@@ -53,14 +53,20 @@
           <a class="navbar-item" href="/myaccount/myprofile">
             My profile
           </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="/myaccount/logout">
-            Log out
-          </a>
         </div>
       </div>
     </div>
-
+    
+<div class="navbar-end navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">
+    <p>Hello, {{user.name}}</p>
+  </a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="/logout">
+      Log out
+    </a>
+  </div>
+      
 {{else}}
 
 

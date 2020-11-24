@@ -9,14 +9,13 @@ const Cocktails = require('../models/Cocktails');
 
 
 //GET SIGN UP
-router.get('/signup', (req, res, next) => res.render('auth/Access/signup'));
+router.get('/signup', (req, res) => res.render('auth/Access/signup'));
 
 //POST SIGN UP
 router.post('/signup', (req, res) => {
-  const {username, password} = req.body
-  if(username === '' || password === ''){
+  const {name, lastName, username, password} = req.body
+  if(name === '' || lastName === '' || username === '' || password === ''){
     res.render('auth/Access/signup', {errorMessage: 'You have to fill all the fields'})
-    return
   }
 
   User.findOne({username})
@@ -24,8 +23,8 @@ router.post('/signup', (req, res) => {
       if(!result){
         bcrypt.hash(password, 10)
           .then((hashedPassword)=>{
-            User.create({username, password: hashedPassword})
-              .then(() => res.redirect('/'))
+            User.create({name, lastName, username, password: hashedPassword})
+              .then(() => res.redirect('/login'))
           })       
       } else {
         res.render('auth/Access/signup', {errorMessage: 'This user already exists. Please, try again'})
@@ -47,19 +46,17 @@ router.post('/login', passport.authenticate("local", {
   passReqToCallback: true
 }))
 
-
 //GET LOG OUT
 
-router.get('/myaccount/logout', (req, res)=>{
+router.get('/logout', (req, res)=>{
   req.logout()
   res.redirect('/')
 })
 
 //GET HOME
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   res.render('home',{ user: req.user })
-
 });
 
 //GET COCKTAILS MENU
@@ -99,54 +96,35 @@ router.get('/myaccount/myprofile', ensureLogin.ensureLoggedIn(), (req, res)=>{
 
 //GET MYACCOUNT/MYCOCKTAILS
 
-// router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
-//   res.render('auth/MyAccount/mycocktails', { user: req.user })
-// })
-
-router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res, next) => {
+router.get('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res) => {
   Cocktails.find({}, {strDrink: 1})
   .then((cocktail) => {
-    console.log(cocktail)
     res.render('auth/MyAccount/mycocktails', {cocktail});
-    
   })
-  .catch((err) => {
-    console.log(err)
-    res.render('error')
-  })
-  
+  .catch((err) => res.render('error'))
 })
 
 //POST  MYACCOUNT/MYCOCKTAILS
 
-router.post('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res, next)=>{
+router.post('/myaccount/mycocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
   const { strDrink,strCategory,strAlcoholic,strGlass,strInstructions,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5,strIngredient6,strIngredient7,strIngredient8,strIngredient9,strIngredient10,strIngredient11,strIngredient12,strIngredient13,strIngredient14,strIngredient15,strMeasure1,strMeasure2,strMeasure3,strMeasure4,strMeasure5,strMeasure6,strMeasure7,strMeasure8,strMeasure9,strMeasure10,strMeasure11,strMeasure12,strMeasure13} = req.body
   const newCocktail = req.body
   Cocktails.create(newCocktail)
   .then((result)=>{
     res.redirect('/myaccount/mycocktails')
   })
-  .catch((err)=> {
-    console.log(err)
-    res.render('error');
-  })
+  .catch((err)=> res.render('error'))
   });
+
 
 // RENDER NEW COCKTAIL FORM
 router.get('/myaccount/new-cocktail', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/MyAccount/newCocktailForm', { user: req.user })
 })
 
-//GET MYACCOUNT/MYFAVOURITES
-
-router.get('/myaccount/myfavourites', ensureLogin.ensureLoggedIn(), (req, res)=>{
-  res.render('auth/MyAccount/myfavourites', { user: req.user })
-})
-
-
-// GET ALL CELEBRITIES LIST
-router.get('/myaccount/mycocktails', (req, res, next) => {
-  Celebrity.find({}, {name: 1})
+// GET ALL COCKTAILS LIST
+router.get('/myaccount/mycocktails',ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  Cocktails.find({}, {name: 1})
   .then((cocktail) => {
     console.log(cocktail)
     res.render('/myaccount/mycocktails/:id', {cocktail});
@@ -160,7 +138,7 @@ router.get('/myaccount/mycocktails', (req, res, next) => {
 })
 
 // GET MYCOCKTAILS INFO
-router.get('/myaccount/mycocktails/details/:id', (req, res, next) =>{
+router.get('/myaccount/mycocktails/details/:id',ensureLogin.ensureLoggedIn(), (req, res, next) =>{
   const id = req.params.id
   Cocktails.findById(id)
   .then((result)=>{
@@ -173,8 +151,40 @@ router.get('/myaccount/mycocktails/details/:id', (req, res, next) =>{
 })
 })
 
+
+// RENDER EDIT USER FORM
+router.get('/login/:id',ensureLogin.ensureLoggedIn(), (req, res)=>{
+  const id = req.params.id
+  User.findById(id)
+  .then((result)=>{
+      res.render('auth/Access/editlogin', result)
+  })
+  .catch((err)=>{
+      console.log(err)
+      res.render('error')
+  })
+  
+})
+
+
+//EDIT USER  
+router.post('/login/:id',ensureLogin.ensureLoggedIn(), (req, res, next)=>{
+  const id = req.params.id
+  const editedUser= req.body
+  User.findOneAndUpdate(id, editedUser)
+  .then((result)=>{
+    res.render('auth/Access/editlogin', result)
+  })
+  .catch((err)=>{
+    console.log(err)
+    res.render('error')
+  })
+
+})
+
+
 // RENDER EDIT COCKTAIL FORM
-router.get('/myaccount/mycocktails/details/:id/edit', (req, res, next)=>{
+router.get('/myaccount/mycocktails/details/:id/edit',ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const id = req.params.id
   Cocktails.findById(id)
   .then((result)=>{
@@ -188,7 +198,7 @@ router.get('/myaccount/mycocktails/details/:id/edit', (req, res, next)=>{
 })
 
 //EDIT COCKTAIL  
-router.post('/myaccount/mycocktails/details/:id/edit', (req, res, next)=>{
+router.post('/myaccount/mycocktails/details/:id/edit', ensureLogin.ensureLoggedIn(),(req, res, next)=>{
   const id = req.params.id
   const editedCocktail = req.body
   Cocktails.findByIdAndUpdate(id, editedCocktail)
@@ -204,7 +214,7 @@ router.post('/myaccount/mycocktails/details/:id/edit', (req, res, next)=>{
 
 
 // DELETE COCKTAIL
-router.post('/myaccount/mycocktails/details/:id/delete', (req, res, next) =>{
+router.post('/myaccount/mycocktails/details/:id/delete',ensureLogin.ensureLoggedIn(), (req, res, next) =>{
   const id = req.params.id
   Cocktails.findByIdAndRemove(id)
   .then(()=>{
@@ -215,6 +225,10 @@ router.post('/myaccount/mycocktails/details/:id/delete', (req, res, next) =>{
       res.render('error')
   })
 })
+
+
+
+
 
 
 module.exports = router;
