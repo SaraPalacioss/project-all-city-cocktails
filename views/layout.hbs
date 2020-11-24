@@ -7,94 +7,106 @@
   <title>{{title}}</title> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-
-  <link rel="stylesheet" href="/stylesheets/style_plain.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style_home.css">
  
 </head>
 <body>
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a>
+  <div class="container-layout">
+    <div>
+      <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item">
+              <img src="/images/Logo.png" width="70" height="42">
+            </a>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
 
-{{#if user}}
+        {{#if user}}
 
-  <div id="navbarBasicExample" class="navbar-menu">
+          <div id="navbarBasicExample" class="navbar-menu">
 
-    <div class="navbar-start">
-      <a class="navbar-item" href="/home">
-        Home
-      </a>
+            <div class="navbar-start">
+              <a class="navbar-item" href="/">
+                Home
+              </a>
 
-      <a class="navbar-item" href="/cocktails">
-        Coktails
-      </a>
+              <a class="navbar-item" href="/cocktails">
+                Coktails
+              </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          My account
-        </a>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                  My account
+                </a>
 
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="/myaccount/mycocktails">
-            My cocktails
+                <div class="navbar-dropdown">
+                  <a class="navbar-item" href="/myaccount/mycocktails">
+                    My cocktails
+                  </a>
+                  <a class="navbar-item" href="/myaccount/myfavourites">
+                    My favorites
+                  </a>
+                  <a class="navbar-item" href="/myaccount/myprofile">
+                    My profile
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+        <div class="navbar-end navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <p>Hello, {{user.name}}</p>
           </a>
-          <a class="navbar-item" href="/myaccount/myfavourites">
-            My favorites
-          </a>
-          <a class="navbar-item" href="/myaccount/myprofile">
-            My profile
-          </a>
-        </div>
-      </div>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="/logout">
+              Log out
+            </a>
+          </div>
+              
+        {{else}}
+
+
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-primary" href="/signup">
+                    <strong>Sign up</strong>
+                  </a>
+                  <a class="button is-light" href="/login">
+                    Log in
+                  </a>
+                </div>
+              </div>
+            </div>
+            {{/if}}
+          </div>
+
+        </nav>
+    </div> 
+    <div>
+     
+      {{{body}}}
+        <div>
+      <footer>
+        <p>© 2020 Copyright:mAllCityCocktails.com</p>
+      </footer>
     </div>
-    
-<div class="navbar-end navbar-item has-dropdown is-hoverable">
-  <a class="navbar-link">
-    <p>Hello, {{user.name}}</p>
-  </a>
-  <div class="navbar-dropdown">
-    <a class="navbar-item" href="/logout">
-      Log out
-    </a>
-  </div>
-      
-{{else}}
-
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary" href="/signup">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light" href="/login">
-            Log in
-          </a>
-        </div>
-      </div>
     </div>
-    {{/if}}
+  
   </div>
 
-</nav>
 
-  {{{body}}}
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/javascripts/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/script.js"></script>
 </body>
-<footer>All rights reserved</footer>
+
 </html>
