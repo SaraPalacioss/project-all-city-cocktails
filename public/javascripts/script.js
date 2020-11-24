@@ -15,8 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			.then((result)=>{
 				document.getElementById('resultByNameUl').innerText = ''
 				result.data.drinks.forEach((cocktail)=>{
-					const li = document.createElement('li')
-					li.innerHTML = 	cocktail.strDrink
+					const p = document.createElement('p')
+				p.innerHTML = 	`<div class="card bg-dark border-light card-render">
+        <img  class="card-img-top" src="${cocktail.strDrinkThumb}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title h5-render"><a  href="/cocktails/no-alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></h5>
+        </div>
+      </div>`
 					document.getElementById('resultByNameUl').append(li)
 				})
 			})
@@ -56,19 +61,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//List of non alcohol cocktails:	
 
+// 	document.addEventListener('DOMContentLoaded', () => {
+				
+// 		axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Non_Alcoholic')	
+// 		.then((result)=>{
+// 			document.getElementById('resultByNoAlcohol').innerText = ''
+// 			result.data.drinks.forEach((cocktail)=>{
+// 				const li = document.createElement('li')
+// 				li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/no-alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
+// 				document.getElementById('resultByNoAlcohol').append(li)
+// 			})
+// 		})
+// 		.catch((error)=> console.log(error))
+// }, false);
+
+
+
+	//List of non alcohol cocktails:	
+
 	document.addEventListener('DOMContentLoaded', () => {
 				
 		axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Non_Alcoholic')	
 		.then((result)=>{
 			document.getElementById('resultByNoAlcohol').innerText = ''
 			result.data.drinks.forEach((cocktail)=>{
-				const li = document.createElement('li')
-				li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/no-alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
-				document.getElementById('resultByNoAlcohol').append(li)
+				const p = document.createElement('p')
+				p.innerHTML = 	`<div class="card bg-dark border-light card-render">
+        <img  class="card-img-top" src="${cocktail.strDrinkThumb}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title h5-render"><a  href="/cocktails/no-alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></h5>
+        </div>
+      </div>`
+				document.getElementById('resultByNoAlcohol').append(p)
 			})
 		})
 		.catch((error)=> console.log(error))
 }, false);
+
 
 
 	//List of alcohol cocktails:	
@@ -81,9 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	.then((result)=>{
 		document.getElementById('resultByAlcohol').innerText = ''
 		result.data.drinks.forEach((cocktail)=>{
-			const li = document.createElement('li')			
-			li.innerHTML = 	`<img src='${cocktail.strDrinkThumb}'><br><p><a href="/cocktails/alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></p>`
-			document.getElementById('resultByAlcohol').append(li)
+			const p = document.createElement('p')
+				p.innerHTML = 	`<div class="card bg-dark border-light card-render">
+        <img  class="card-img-top" src="${cocktail.strDrinkThumb}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title h5-render"><a  href="/cocktails/alcohol/details/${cocktail.idDrink}">${cocktail.strDrink}</a></h5>
+        </div>
+      </div>`
+			document.getElementById('resultByAlcohol').append(p)
  
 
 

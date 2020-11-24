@@ -119,6 +119,15 @@ color: black;
 }
 
 
+#cocktail-img {
+ width: 450px;
+ height: 450px;
+
+
+  
+}
+
+
 
 #background-logo{
 
@@ -230,6 +239,34 @@ a:hover{
   color: white;
 }
 
-.card-title h5{
-  
+.alcohol-nonalcohol-view {
+margin-left: 20%;
+padding-top: 10%;
+width: 60%;
+height: 60%;
+}
+
+
+.card:hover{
+  transform: scale(1.05);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.card h5{
+font-weight: bold;
+text-decoration: underline;
+}
+
+.card-render{
+
+  width: 200px;
+  height: 260px;
+  margin-left: 28%;
+}
+
+
+
+
+.h5-render {
+  font-size: 12px;;
 }
