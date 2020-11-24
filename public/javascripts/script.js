@@ -195,3 +195,31 @@ while(meassureArr[i] !== null && i<15){
 
 
 
+// SCRIPT FOR HOME VIEW:
+
+
+			
+document.addEventListener('DOMContentLoaded', () => {
+				
+	axios.get('https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php')	
+	.then((result)=>{
+	document.getElementById("caption-img-1").src =result.data.drinks[0].strDrinkThumb 
+	document.getElementById("caption-h5-1").href =`/cocktails/details/${result.data.drinks[0].idDrink}`
+	document.getElementById("caption-h5-1").innerHTML =result.data.drinks[0].strDrink
+
+	document.getElementById("caption-img-2").src =result.data.drinks[1].strDrinkThumb 
+	document.getElementById("caption-h5-2").href =`/cocktails/details/${result.data.drinks[1].idDrink}`
+	document.getElementById("caption-h5-2").innerHTML =result.data.drinks[1].strDrink
+
+	document.getElementById("caption-img-3").src =result.data.drinks[2].strDrinkThumb 
+	document.getElementById("caption-h5-3").href =`/cocktails/details/${result.data.drinks[2].idDrink}`
+	document.getElementById("caption-h5-3").innerHTML =result.data.drinks[2].strDrink
+
+	document.getElementById("caption-img-4").src =result.data.drinks[3].strDrinkThumb 
+	document.getElementById("caption-h5-4").href =`/cocktails/details/${result.data.drinks[3].idDrink}`
+	document.getElementById("caption-h5-4").innerHTML =result.data.drinks[3].strDrink
+
+
+	})
+	.catch((error)=> console.log(error))
+}, false);

@@ -65,6 +65,11 @@ router.get('/cocktails', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/cocktails', { user: req.user })
 })
 
+//GET COCKTAILS/ALCOHOL/DETAILS
+router.get('/cocktails/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/details', { user: req.user })
+})
+
 //GET COCKTAILS/ALCOHOL
 
 router.get('/cocktails/alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
