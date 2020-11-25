@@ -25,7 +25,7 @@ html, body {
 #img-size{
 
   width: 500px;
-  height:237px;
+  height:300px;
   /* padding: 0 400px; */
   padding-left: 2%;
   padding-right: 2%;
@@ -39,7 +39,7 @@ html, body {
 .carousel-inner p {
   font-size: 50px;
   font-family: 'Roboto', sans-serif;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 
 }
 
@@ -58,6 +58,7 @@ html, body {
   
   width: 155px;
   height: 258px;
+ 
   
 }
 
@@ -76,6 +77,17 @@ border-radius: 10px 10px 10px 10px;
 -webkit-border-radius: 10px 10px 10px 10px;
 border: 0px none #ffffff;
 color: black;
+}
+
+.search-bar{
+  background:rgba(245, 245, 245,0.9);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
+  color: black;
+  outline: 0;
+
 }
 
 
@@ -99,6 +111,35 @@ border: 0px none #ffffff;
 color: black;
 }
 
+.background-details-cocktail {
+  display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 10%;
+  padding: 20px;
+  width: 650px;
+
+background:rgba(245, 245, 245, 0.651);
+border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px none #ffffff;
+color: black;
+
+}
+
+.background-details-cocktail a{
+  color: black;
+}
+
+.background-details-cocktail h2{
+ text-decoration: underline;
+font-size: 18px;
+}
+
 
 .background-details-info {
   display: flex;
@@ -117,6 +158,11 @@ color: black;
   
 }
 
+.mycocktails-photo{
+  width: 400px;
+  height: 500px;
+}
+
 .background-details-info h2 {
   font-size: 1rem;
   text-decoration: underline;
@@ -133,6 +179,14 @@ color: black;
 
   
 }
+
+#cocktail-img2 img{
+  width: 500px;
+  height: 500px;
+ 
+ 
+   
+ }
 
 
 
@@ -167,6 +221,14 @@ border: 0px none #ffffff;
   outline:0; 
   width: 60px;
 
+}
+
+.container-mycocktails{
+
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: center;
 }
 
 .btn-auth:hover {
@@ -276,3 +338,61 @@ text-decoration: underline;
 .h5-render {
   font-size: 12px;;
 }
+
+
+
+
+  .searchbar{
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #353b48;
+  border-radius: 30px;
+  padding: 10px;
+  }
+
+  .search_input{
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color:transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+  }
+
+  .searchbar:hover > .search_input{
+  padding: 0 10px;
+  width: 450px;
+  caret-color:red;
+  transition: width 0.4s linear;
+  }
+
+  .searchbar:hover > .search_icon{
+  background: white;
+  color: #e74c3c;
+  }
+
+  .search_icon{
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color:white;
+  text-decoration:none;
+  }
+
+  .search-section h2 {
+    text-decoration: underline;
+  }
+
+  .edit-delete-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  }

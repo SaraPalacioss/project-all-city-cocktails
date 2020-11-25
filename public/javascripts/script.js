@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <img class="card-img-top" src="${cocktail.strDrinkThumb}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><a href="/cocktails/details/${cocktail.idDrink}">${cocktail.strDrink}</a></h5>
-        </div></div>`
+        </div></div><br>`
 			
 
 					document.getElementById('resultByName').append(p)

@@ -1,5 +1,11 @@
 
-<p>{{strDrink}}</p>
+<div class="background-details">
+  <div class="background-details-photo">
+     <div id="cocktail-img2">        <img src="/images/pina colada.jpeg" alt="cosmopolitan-img">
+</div>
+  </div>
+  <div class="background-details-info">
+    <h2 id="cocktail-name">{{strDrink}}</h2>
 <p>Category: {{strCategory}}</p>
 <p>Alcoholic: {{strAlcoholic}}</p>
 <p>Glass: {{strGlass}}</p>
@@ -42,15 +48,27 @@
  <li>{{strMeasure14}}</li>
   </ul>
 <p>Date: {{dateModified}}</p>
-
-<button type="button"><a href="/myaccount/mycocktails/details/{{id}}/edit">Edit cocktail</a></button>
-            <br>
-
-
-
-            <form action="/myaccount/mycocktails/details/{{id}}/delete" method="POST">
-                <button >Delete cocktail</button>
-            </form> 
+<div class="edit-delete-btns">
+<div>
+  <button type="button" class="btn btn-light btn-sm"><a href="/myaccount/mycocktails/details/{{id}}/edit"> Edit cocktail </a></button>
 
 
 </div>
+         
+<div>
+
+     <form action="/myaccount/mycocktails/details/{{id}}/delete" method="POST">
+                <button class="btn btn-secondary btn-sm">Delete cocktail</button>
+            </form> 
+
+</div>
+
+            
+
+   
+</div>
+
+
+
+</div>
+

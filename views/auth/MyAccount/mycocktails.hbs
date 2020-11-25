@@ -1,9 +1,14 @@
 
-<p>my cocktails</p>
 
-<h2>List of my cocktails</h2>
 
-{{#each cocktail}}
+<div class="background-details-cocktail">
+  <div class="mycocktails-photo">
+        <img src="/images/cosmopolitan.png" alt="cosmopolitan-img">
+  </div>
+  <div class="background-details-info">
+    <h2 id="cocktail-name">MY COCKTAILS</h2>
+
+  {{#each cocktail}}
    <ul>
        <li>
  
@@ -18,8 +23,15 @@
 
 {{/each}}
 
-<div>
-    <a class="btn btn-primary" href="/myaccount/new-cocktail" role="button">Add new cocktail</a>
+   <div>
+    <a class="btn btn-light" href="/myaccount/new-cocktail" role="button">Add new cocktail</a>
+</div>
+
+  </div>
+
+
+  
+
 </div>
 
 
