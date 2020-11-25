@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/style_home.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
   <div class="container-layout">
     <div>
@@ -28,7 +33,9 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
+
         {{#if user}}
+
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
             <a class="navbar-item" href="/">
@@ -45,9 +52,6 @@
                 <a class="navbar-item" href="/myaccount/mycocktails">
                   My cocktails
                 </a>
-                <a class="navbar-item" href="/myaccount/myfavourites">
-                  My favorites
-                </a>
                 <a class="navbar-item" href="/myaccount/myprofile">
                   My profile
                 </a>
@@ -63,7 +67,9 @@
                 Log out
               </a>
             </div>
+
             {{else}}
+
             <div class="navbar-end">
               <div class="navbar-item">
                 <div class="buttons">
@@ -76,19 +82,63 @@
                 </div>
               </div>
             </div>
+
             {{/if}}
+
           </div>
       </nav>
     </div>
     <div>
+
       {{{body}}}
+
     </div>
-    {{!-- <div>
-      <footer>
-        <p>© 2020 Copyright:mAllCityCocktails.com</p>
-      </footer>
-    </div> --}}
+    <div>
+    <footer class="page-footer font-small special-color-dark pt-4">
+
+      <div class="container">
+
+        <ul class="list-unstyled list-inline text-center">
+          <li class="list-inline-item">
+            <a class="btn-floating btn-fb mx-1">
+              <i class="fab fa-facebook-f"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-tw mx-1">
+              <i class="fab fa-twitter"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-gplus mx-1">
+              <i class="fab fa-google-plus-g"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-li mx-1">
+              <i class="fab fa-linkedin-in"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-dribbble mx-1">
+              <i class="fab fa-dribbble"> </i>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="#"> Stackhouse.com</a>
+      </div>
+
+    </footer>
+    </div> 
   </div>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -103,4 +153,5 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
+
 </html>

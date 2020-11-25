@@ -1,4 +1,4 @@
-<div class="background-details background-details-info mycocktails-form">
+<div class="background-details background-details-info mycocktails-form" >
   <div>
     <h2 id="cocktail-name">Edit cocktail:</h2>
   </div>
@@ -14,9 +14,17 @@
           <label for="strCategory">Category: </label>
           <select name="strCategory" id="strCategory" value="{{cocktail.strCategory}}">
             <option value="0" selected>Seleccione...
-            <option value="1">Cocktail
-            <option value="2">Shot
-            <option value="3">Ordinary Drink
+            <option value="1">Beer
+            <option value="2">Cocktail
+            <option value="3">Cocoa
+            <option value="4">Coffee / Tea
+            <option value="5">Homemade Liqueur
+            <option value="6">Milk / Float / Shake
+            <option value="7">Ordinary Drink
+            <option value="8">Punch / Party Drink
+            <option value="9">Other/Unknown
+            <option value="10">Shot
+            <option value="11">Soft Drink / Soda
           </select>
         </div>
         <div>
@@ -30,13 +38,36 @@
         <div>
           <label for="strGlass">Glass: </label>
           <select name="strGlass" id="strGlass" value="{{cocktail.strGlass}}">
-            <option value="0" selected>Seleccione...
-            <option value="1">Beer mug
-            <option value="2">Cocktails glass
-            <option value="3">Coffee mug
-            <option value="4">Collins Glass
-            <option value="5">Highball Glass
-            <option value="6">Shot glass
+         <option value="0" selected>Seleccione...
+            <option value="1">Balloon Glass
+            <option value="2">Beer Glass
+            <option value="3">Beer mug
+            <option value="4">Beer pilsner
+            <option value="5">Brandy snifter
+            <option value="6">Champagne flute
+            <option value="7">Cocktails glass
+            <option value="8">Coffee mug
+            <option value="9">Collins Glass
+            <option value="10">Copper Mug
+            <option value="11">Coupe Glass
+            <option value="12">Highball Glass
+            <option value="13">Hurricane glass
+            <option value="14">Irish coffee cup
+            <option value="15">Jar
+            <option value="16">Margarita/Coupette glass
+            <option value="17">Margarita glass
+            <option value="18">Martini Glass
+            <option value="19">Mason jar
+            <option value="20">Old-fashioned glass
+            <option value="21">Parfait glass
+            <option value="22">Pitcher
+            <option value="23">Pint glass
+            <option value="24">Pousse cafe glass
+            <option value="25">Punch bowl
+            <option value="26">Shot glass
+            <option value="27">Wine Glass
+            <option value="28">Whiskey sour glass
+            <option value="29">White wine glass
           </select>
         </div>
       </div>
@@ -151,10 +182,10 @@
         </div>
       </div>
       <div class="edit-delete-btns">
-        <button class="button is-primary" style="margin: 10px;">Update cocktail</button>
+        <button class="create-btn">Update cocktail</button>
       </div>
-             <div class="edit-delete-btns">
-        <button type="button" class="button is-primary" style="margin: 10px"><a href="/myaccount/mycocktails">Cancel</a></button>
+      <div class="edit-delete-btns">
+        <button type="button" class="create-btn"><a href="/myaccount/mycocktails">Cancel</a></button>
       </div>
     </form>
   </div>

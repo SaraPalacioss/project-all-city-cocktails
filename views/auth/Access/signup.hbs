@@ -1,29 +1,28 @@
-<div class="background-form">
-  <div id="background-logo"><img id="logo" src="/images/Logo.png" alt="logo"></div>
-
+<div class="background-form ">
+  <div><img id="logo" src="/images/Logo.png" alt="logo"></div>
   <form action="/signup" method="POST">
     <div>
-      <label class ="form-label" for="name">Name: </label>
-      <br><input class ="form-imput" type="text" id="name" name="name">
+      <label class="form-label" for="name">Name: </label>
+      <br><input class="form-imput" type="text" id="name" name="name">
     </div>
     <div>
-      <label class ="form-label" for="lastName">Lastname: </label>
-      <br><input class ="form-imput" type="text" id="lastName" name="lastName">
+      <label class="form-label" for="lastName">Lastname: </label>
+      <br><input class="form-imput" type="text" id="lastName" name="lastName">
     </div>
-      <div>
-      <label class ="form-label" for="username">Email: </label>
-      <br><input class ="form-imput" type="username" id="username" name="username">
+    <div>
+      <label class="form-label" for="username">Email: </label>
+      <br><input class="form-imput" type="username" id="username" name="username">
     </div>
-      <div>
-      <label class ="form-label" for="password">Password: </label>
-      <br><input class ="form-imput" type="password" id="password" name="password">
+    <div>
+      <label class="form-label" for="password">Password: </label>
+      <br><input class="form-imput" type="password" id="password" name="password">
     </div>
     <div id="btn">
       <button class="btn-auth" type="submit">Sign in</button>
     </div>
 
     {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
+    <p>{{errorMessage}}</p>
     {{/if}}
 
   </form>

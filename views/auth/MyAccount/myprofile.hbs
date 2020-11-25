@@ -1,12 +1,13 @@
+<div class="background-form background-details-info">
+  <div id="background-logo"><img id="logo" src="/images/Logo.png" alt="logo"></div>
 
-<p>este es mi perfil</p>
+  {{#if user}}
 
-{{#if user}}
   <p>Name: {{user.name}}</p>
   <p>Lastname: {{user.lastName}}</p>
   <p>Email: {{user.username}}</p>
-  
 
-{{/if}}
+  {{/if}}
 
-<a href="/login/edit">Edit account</a>
+  <button type="button" class="create-btn"><a href="/login/edit">Edit profile</a></button>
+</div>

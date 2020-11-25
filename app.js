@@ -1,23 +1,22 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
-const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const chalk        = require('chalk');
+const bodyParser    = require('body-parser');
+const cookieParser  = require('cookie-parser');
+const express       = require('express');
+const favicon       = require('serve-favicon');
+const hbs           = require('hbs');
+const mongoose      = require('mongoose');
+const logger        = require('morgan');
+const path          = require('path');
+const chalk         = require('chalk');
+const nodemailer    = require('nodemailer');
 const passport      = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session       = require('express-session');
-const MongoStore            = require('connect-mongo')(session)
-
+const MongoStore    = require('connect-mongo')(session)
 const bcrypt        = require('bcrypt')
-const connect        = require('connect-ensure-login')
+const connect       = require('connect-ensure-login')
 const flash         = require('connect-flash')
-
 
 
 mongoose
@@ -32,10 +31,7 @@ mongoose
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
-
 const app = express();
-
-
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -47,9 +43,7 @@ app.use(cookieParser());
 app.use(session({secret:'ourPassword', resave: true, saveUninitialized: true}))
 
 //Middleware para serializar al usuario
-passport.serializeUser((user, callback)=>{
-  callback(null, user._id)
-})
+passport.serializeUser((user, callback)=>callback(null, user._id))
 
 //Middleware para des-serializar al usuario
 passport.deserializeUser((id, callback)=>{
@@ -83,9 +77,7 @@ passport.use(new LocalStrategy({passReqToCallback: true}, (req, username, passwo
 app.use(passport.initialize())
 app.use(passport.session())
 
-
-
-//CONFIGURACIÓN DE LAS COOKIES
+//Cookies config
 app.use(session({
   secret: "ourPassword",
   cookie: { maxAge: 60000 },
@@ -95,17 +87,12 @@ app.use(session({
   })
 }));
 
-
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
-
-
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -113,15 +100,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
-
-// default value for title local
 app.locals.title = 'All city cocktails';
 
 const User = require('./models/User');
-
-
-
-
 const auth = require('./routes/auth')
 app.use('/', auth);
 
@@ -130,7 +111,7 @@ app.use('/', auth);
 module.exports = app;
 
 
-//LISTENER-----------------------------------------------
+// Listener
 app.listen(process.env.PORT, ()=>{
   console.log(chalk.green.inverse.bold(`Conectado al puerto ${process.env.PORT}`));
 });

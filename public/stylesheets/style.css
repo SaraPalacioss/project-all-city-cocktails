@@ -1,13 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nixie+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&family=Scada&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Belleza&family=Playfair+Display+SC:ital,wght@1,700&family=Scada&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap');
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url("https://fonts.googleapis.com/css2?family=Syncopate&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap");
 
 html,
 body {
@@ -20,7 +16,25 @@ body {
   font-family: "Belleza", sans-serif;
   text-align: center;
   color: white;
+  height: 1050p;
 }
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  margin-bottom: 40px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
 #carousel {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -29,18 +43,16 @@ body {
 #img-size {
   width: 500px;
   height: 300px;
-  /* padding: 0 400px; */
   padding-left: 2%;
   padding-right: 2%;
-
   position: center center;
   opacity: 0.4;
-  filter: alpha(opacity=40); /* For IE8 and earlier */
+  filter: alpha(opacity=40);
 }
 
 .carousel-inner p {
   font-size: 60px;
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   padding-bottom: 60px;
 }
 
@@ -64,23 +76,13 @@ body {
   transform: translate(-50%, 0);
   margin-top: 10%;
   padding: 20px;
-
+  outline: none;
   background: rgba(245, 245, 245, 0.9);
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border: 0px none #ffffff;
   color: black;
-}
-
-.search-bar {
-  background: rgba(245, 245, 245, 0.9);
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border: 0px none #ffffff;
-  color: black;
-  outline: 0;
 }
 
 .background-details {
@@ -93,12 +95,12 @@ body {
   margin-top: 10%;
   padding: 20px;
   width: 1000px;
-
   background: rgba(245, 245, 245, 0.651);
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border: 0px none #ffffff;
+  outline: none;
   color: black;
 }
 
@@ -121,10 +123,9 @@ body {
   color: black;
 }
 
-
 .search-section h2 {
   text-decoration: underline;
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   font-size: 25px;
 }
 
@@ -133,7 +134,7 @@ body {
 }
 
 .background-details-cocktail h2 {
-  font-family: 'Cormorant', serif;
+  font-family: "Cormorant", serif;
   text-decoration: underline;
   font-size: 18px;
 }
@@ -147,6 +148,7 @@ body {
   padding-left: 2%;
   font-family: "Gochi Hand", cursive;
 }
+
 
 .background-details-info h1 {
   font-size: 1.4rem;
@@ -168,7 +170,7 @@ body {
 }
 
 #cocktail-img2 img {
-  width: 500px;
+  width: 400px;
   height: 500px;
 }
 
@@ -208,9 +210,7 @@ body {
   align-items: center;
 }
 
-.container-home a {
-  text-decoration: none;
-}
+
 
 .btn-auth:hover {
   background: rgba(198, 201, 206, 0.97);
@@ -256,20 +256,15 @@ body {
   justify-content: space-evenly;
 }
 
+.container-home a {
+  text-decoration: none;
+}
+
 .container-home {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-content: center;
-}
-
-footer {
-  background-color: black;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40px;
-  color: white;
 }
 
 #logo {
@@ -302,14 +297,11 @@ a:hover {
   font-weight: bold;
   font-size: 15px;
 
-  font-family: 'Syncopate', sans-serif;
+  font-family: "Syncopate", sans-serif;
 }
 
-
-
-
 .card a {
-text-decoration: none;
+  text-decoration: none;
 }
 
 .card-render {
@@ -317,10 +309,10 @@ text-decoration: none;
   height: 260px;
   margin-left: 20%;
 }
-
+/* 
 .h5-render {
   font-size: 12px;
-}
+} */
 
 .searchbar {
   margin-bottom: auto;
@@ -366,7 +358,6 @@ text-decoration: none;
   text-decoration: none;
 }
 
-
 .edit-delete-btns {
   display: flex;
   flex-direction: row;
@@ -376,7 +367,10 @@ text-decoration: none;
 .mycocktails-form {
   display: flex;
   flex-direction: column;
+  font-family: "Gochi Hand", cursive;
 }
+
+
 
 .basic-info {
   display: flex;
@@ -412,7 +406,6 @@ text-decoration: none;
   font-size: 25px;
 }
 
-
 .create-btn {
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
@@ -442,14 +435,19 @@ text-decoration: none;
 }
 
 .create-btn a {
-text-decoration: underline;
-color: black;
+  text-decoration: underline;
+  color: black;
 }
 
 .create-btn:hover a {
   text-decoration: underline;
-   background: black;
-  
+  background: black;
+
   color: white;
-  
-  }
+}
+
+form {
+  border:none;
+  outline: none;
+}
+
