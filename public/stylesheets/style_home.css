@@ -1,101 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&family=Scada&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Playfair+Display+SC:ital,wght@1,700&family=Scada&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
-html, body {
-  background-image: url('/images/bar-498420_1920.jpg');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nixie+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&family=Scada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Belleza&family=Playfair+Display+SC:ital,wght@1,700&family=Scada&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap');
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+html,
+body {
+  background-image: url("/images/bar-498420_1920.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: white;
-  font-family: 'Belleza', sans-serif;
+  font-family: "Belleza", sans-serif;
   text-align: center;
   color: white;
-
 }
 #carousel {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-#img-size{
-
+#img-size {
   width: 500px;
-  height:300px;
+  height: 300px;
   /* padding: 0 400px; */
   padding-left: 2%;
   padding-right: 2%;
 
   position: center center;
-  opacity:0.4;
-  filter:alpha(opacity=40); /* For IE8 and earlier */
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
 }
-
 
 .carousel-inner p {
-  font-size: 50px;
-  font-family: 'Roboto', sans-serif;
+  font-size: 60px;
+  font-family: 'Cormorant', serif;
   padding-bottom: 60px;
-
 }
 
-
-#captions{
-
- padding-left: 2%;
+#captions {
+  padding-left: 2%;
   padding-right: 2%;
   padding-top: 20px;
   width: 60%;
-  height: 60%;
+  height: 90%;
   margin-left: 20%;
 }
 
 .search {
-  
   width: 155px;
   height: 258px;
- 
-  
 }
 
 .background-form {
-
-
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
   margin-top: 10%;
   padding: 20px;
 
-background:rgba(245, 245, 245,0.9);
-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px none #ffffff;
-color: black;
+  background: rgba(245, 245, 245, 0.9);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
+  color: black;
 }
 
-.search-bar{
-  background:rgba(245, 245, 245,0.9);
+.search-bar {
+  background: rgba(245, 245, 245, 0.9);
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border: 0px none #ffffff;
   color: black;
   outline: 0;
-
 }
 
-
 .background-details {
-
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -103,18 +94,18 @@ justify-content: space-evenly;
   padding: 20px;
   width: 1000px;
 
-background:rgba(245, 245, 245, 0.651);
-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px none #ffffff;
-color: black;
+  background: rgba(245, 245, 245, 0.651);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
+  color: black;
 }
 
 .background-details-cocktail {
   display: flex;
-flex-direction: row;
-justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-evenly;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -122,24 +113,30 @@ justify-content: space-evenly;
   padding: 20px;
   width: 650px;
 
-background:rgba(245, 245, 245, 0.651);
-border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px none #ffffff;
-color: black;
-
-}
-
-.background-details-cocktail a{
+  background: rgba(245, 245, 245, 0.651);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
   color: black;
 }
 
-.background-details-cocktail h2{
- text-decoration: underline;
-font-size: 18px;
+
+.search-section h2 {
+  text-decoration: underline;
+  font-family: 'Cormorant', serif;
+  font-size: 25px;
 }
 
+.background-details-cocktail a {
+  color: black;
+}
+
+.background-details-cocktail h2 {
+  font-family: 'Cormorant', serif;
+  text-decoration: underline;
+  font-size: 18px;
+}
 
 .background-details-info {
   display: flex;
@@ -147,18 +144,15 @@ font-size: 18px;
   justify-content: center;
   align-content: center;
   text-align: left;
-  padding-left: 2% ;
-  font-family: 'Gochi Hand', cursive;
+  padding-left: 2%;
+  font-family: "Gochi Hand", cursive;
 }
 
 .background-details-info h1 {
   font-size: 1.4rem;
- 
-
-  
 }
 
-.mycocktails-photo{
+.mycocktails-photo {
   width: 400px;
   height: 500px;
 }
@@ -166,47 +160,32 @@ font-size: 18px;
 .background-details-info h2 {
   font-size: 1rem;
   text-decoration: underline;
-
-
-  
 }
-
 
 #cocktail-img {
- width: 450px;
- height: 450px;
-
-
-  
+  width: 450px;
+  height: 450px;
 }
 
-#cocktail-img2 img{
+#cocktail-img2 img {
   width: 500px;
   height: 500px;
- 
- 
-   
- }
+}
 
-
-
-#background-logo{
-
-
+#background-logo {
   background: rgba(3, 3, 3, 0.5);
   border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px none #ffffff;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
   color: black;
-  
-  }
+}
 
 .btn-auth {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: Open Sans;
   font-size: 13px;
   font-weight: 100;
@@ -218,17 +197,19 @@ border: 0px none #ffffff;
   display: inline-block;
   cursor: pointer;
   text-align: center;
-  outline:0; 
+  outline: 0;
   width: 60px;
-
 }
 
-.container-mycocktails{
-
+.container-mycocktails {
   display: flex;
   flex-direction: column;
   align-content: flex-start;
   align-items: center;
+}
+
+.container-home a {
+  text-decoration: none;
 }
 
 .btn-auth:hover {
@@ -238,43 +219,41 @@ border: 0px none #ffffff;
   -moz-border-radius: 6px;
   border-radius: 6px;
   text-decoration: none;
-  outline:0; 
-
-  }
-
-#btn{
-  padding-top: 10px ;
+  outline: 0;
 }
 
-#name, #lastName, #username, #password {
-  outline:0;
+#btn {
+  padding-top: 10px;
+}
+
+#name,
+#lastName,
+#username,
+#password {
+  outline: 0;
   border: 1px solid lightgray;
   width: 250px;
   font-size: 14px;
 }
 
-#name:focus, 
-#lastName:focus, 
+#name:focus,
+#lastName:focus,
 #password:focus,
-#password:focus{
- background-color: white;
+#password:focus {
+  background-color: white;
 }
 
-
-#name:active, 
-#lastName:active, 
+#name:active,
+#lastName:active,
 #password:active,
-#password:active{
- background-color: white;
+#password:active {
+  background-color: white;
 }
-
-
 
 .container-layout {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
 }
 
 .container-home {
@@ -282,7 +261,6 @@ border: 0px none #ffffff;
   flex-direction: row;
   justify-content: space-evenly;
   align-content: center;
-
 }
 
 footer {
@@ -299,82 +277,84 @@ footer {
   height: 173px;
 }
 
- a {
+a {
   text-decoration: none;
   color: lightgray;
 }
 
-a:hover{
+a:hover {
   color: white;
 }
 
 .alcohol-nonalcohol-view {
-margin-left: 20%;
-padding-top: 10%;
-width: 60%;
-height: 60%;
+  margin-left: 20%;
+  padding-top: 10%;
+  width: 60%;
+  height: 60%;
 }
 
-
-.card:hover{
+.card:hover {
   transform: scale(1.05);
-box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
-.card h5{
-font-weight: bold;
-text-decoration: underline;
+.card h5 {
+  font-weight: bold;
+  font-size: 15px;
+
+  font-family: 'Syncopate', sans-serif;
 }
 
-.card-render{
 
+
+
+.card a {
+text-decoration: none;
+}
+
+.card-render {
   width: 200px;
   height: 260px;
   margin-left: 20%;
 }
 
-
-
 .h5-render {
-  font-size: 12px;;
+  font-size: 12px;
 }
 
-
-
-
-  .searchbar{
+.searchbar {
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
   background-color: #353b48;
   border-radius: 30px;
   padding: 10px;
-  }
+}
 
-  .search_input{
+.search_input {
   color: white;
   border: 0;
   outline: 0;
   background: none;
   width: 0;
-  caret-color:transparent;
+  caret-color: transparent;
   line-height: 40px;
   transition: width 0.4s linear;
-  }
+}
 
-  .searchbar:hover > .search_input{
+.searchbar:hover > .search_input {
   padding: 0 10px;
   width: 450px;
-  caret-color:red;
+  caret-color: red;
   transition: width 0.4s linear;
-  }
+}
 
-  .searchbar:hover > .search_icon{
+.searchbar:hover > .search_icon {
   background: white;
   color: #e74c3c;
-  }
+}
 
-  .search_icon{
+.search_icon {
   height: 40px;
   width: 40px;
   float: right;
@@ -382,17 +362,94 @@ text-decoration: underline;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color:white;
-  text-decoration:none;
-  }
+  color: white;
+  text-decoration: none;
+}
 
-  .search-section h2 {
-    text-decoration: underline;
-  }
 
-  .edit-delete-btns{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
+.edit-delete-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mycocktails-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredients-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.background-details-info h2 {
+  font-family: "Gochi Hand";
+  font-size: 25px;
+}
+
+
+.create-btn {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  color: black;
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 100;
+  padding: 8px;
+  background-color: white;
+  text-shadow: 1px 1px 20px #000000;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  width: 150px;
+}
+
+.create-btn:hover {
+  background: black;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  text-decoration: none;
+  color: white;
+  width: 146px;
+}
+
+.create-btn a {
+text-decoration: underline;
+color: black;
+}
+
+.create-btn:hover a {
+  text-decoration: underline;
+   background: black;
+  
+  color: white;
+  
   }

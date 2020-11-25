@@ -1,74 +1,50 @@
 
 <div class="background-details">
-  <div class="background-details-photo">
-     <div id="cocktail-img2">        <img src="/images/pina colada.jpeg" alt="cosmopolitan-img">
-</div>
-  </div>
-  <div class="background-details-info">
-    <h2 id="cocktail-name">{{strDrink}}</h2>
-<p>Category: {{strCategory}}</p>
-<p>Alcoholic: {{strAlcoholic}}</p>
-<p>Glass: {{strGlass}}</p>
-<p>Instructions: {{strInstructions}}</p>
-<p>Ingredients: 
-  <ul>
-     <li>{{strIngredient1}}</li>
-     <li>{{strIngredient2}}</li>
-      <li>{{strIngredient3}}</li>
-     <li>{{strIngredient4}}</li>
-          <li>{{strIngredient5}}</li>
-     <li>{{strIngredient6}}</li>
-          <li>{{strIngredient7}}</li>
-     <li>{{strIngredient8}}</li>
-          <li>{{strIngredient9}}</li>
-     <li>{{strIngredient10}}</li>
-          <li>{{strIngredient11}}</li>
-     <li>{{strIngredient12}}</li>
-          <li>{{strIngredient13}}</li>
-     <li>{{strIngredient14}}</li>
- <li>{{strIngredient14}}</li>
-  </ul>
+     <div class="background-details-photo">
+          <div id="cocktail-img2"> 
+               <img src="/images/pina colada.jpeg" alt="cosmopolitan-img">
+          </div>
+     </div>
+     <div class="background-details-info">
+     <h2 id="cocktail-name">{{cocktail.strDrink}}</h2>
+          <p>Category: {{cocktail.strCategory}}</p>
+          <p>Alcoholic: {{cocktail.strAlcoholic}}</p>
+          <p>Glass: {{cocktail.strGlass}}</p>
+          <p>Instructions: {{cocktail.strInstructions}}</p>
+          <p>Ingredients: 
+          <ul>
+               <li>{{cocktail.strMeasure1}} {{cocktail.strIngredient1}}</li>
+               <li>{{cocktail.strMeasure2}} {{cocktail.strIngredient2}}</li>
+               <li>{{cocktail.strMeasure3}} {{cocktail.strIngredient3}}</li>
+               <li>{{cocktail.strMeasure4}} {{cocktail.strIngredient4}}</li>
+               <li>{{cocktail.strMeasure5}} {{cocktail.strIngredient5}}</li>
+               <li>{{cocktail.strMeasure6}} {{cocktail.strIngredient6}}</li>
+               <li>{{cocktail.strMeasure7}} {{cocktail.strIngredient7}}</li>
+               <li>{{cocktail.strMeasure8}} {{cocktail.strIngredient8}}</li>
+               <li>{{cocktail.strMeasure9}} {{cocktail.strIngredient9}}</li>
+               <li>{{cocktail.strMeasure10}} {{cocktail.strIngredient10}}</li>
+               <li>{{cocktail.strMeasure11}} {{cocktail.strIngredient11}}</li>
+               <li>{{cocktail.strMeasure12}} {{cocktail.strIngredient12}}</li>
+               <li>{{cocktail.strMeasure13}} {{cocktail.strIngredient13}}</li>
+               <li>{{cocktail.strMeasure14}} {{cocktail.strIngredient14}}</li>
+               <li>{{cocktail.strMeasure15}} {{cocktail.strIngredient14}}</li>
+          </ul>
 
-<div>Measures: 
-  <ul>
-     <li>{{strMeasure1}}</li>
-     <li>{{strMeasure2}}</li>
-      <li>{{strMeasure3}}</li>
-     <li>{{strMeasure4}}</li>
-          <li>{{strMeasure5}}</li>
-     <li>{{strMeasure6}}</li>
-          <li>{{strMeasure7}}</li>
-     <li>{{strMeasure8}}</li>
-          <li>{{strMeasure9}}</li>
-     <li>{{strMeasure10}}</li>
-          <li>{{strMeasure11}}</li>
-     <li>{{strMeasure12}}</li>
-          <li>{{strMeasure13}}</li>
-     <li>{{strMeasure14}}</li>
- <li>{{strMeasure14}}</li>
-  </ul>
-<p>Date: {{dateModified}}</p>
-<div class="edit-delete-btns">
-<div>
-  <button type="button" class="btn btn-light btn-sm"><a href="/myaccount/mycocktails/details/{{id}}/edit"> Edit cocktail </a></button>
+          <p>Created: {{dateModified}}</p>
 
-
-</div>
-         
-<div>
-
-     <form action="/myaccount/mycocktails/details/{{id}}/delete" method="POST">
-                <button class="btn btn-secondary btn-sm">Delete cocktail</button>
-            </form> 
-
-</div>
-
-            
-
-   
-</div>
-
-
-
+          <div class="edit-delete-btns">
+          <div>
+          <button type="button" class="btn btn-light btn-sm"><a href="/myaccount/mycocktails/details/{{cocktail.id}}/edit"> Edit cocktail </a></button>
+          </div>
+               
+          <div>
+               <form action="/myaccount/mycocktails/details/{{cocktail.id}}/delete" method="POST">
+                    <button class="btn btn-secondary btn-sm">Delete cocktail</button>
+               </form> 
+                          <div class="edit-delete-btns">
+        <button type="button" class="button is-primary" style="margin: 10px"><a href="/myaccount/mycocktails">View all my cocktails</a></button>
+      </div>
+          </div>    
+     </div>
 </div>
 

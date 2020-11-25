@@ -1,37 +1,18 @@
-
-
-
 <div class="background-details-cocktail">
   <div class="mycocktails-photo">
-        <img src="/images/cosmopolitan.png" alt="cosmopolitan-img">
+    <img src="/images/cosmopolitan.png" alt="cosmopolitan-img">
   </div>
   <div class="background-details-info">
-    <h2 id="cocktail-name">MY COCKTAILS</h2>
-
-  {{#each cocktail}}
-   <ul>
-       <li>
- 
-         
-            <a href="/myaccount/mycocktails/details/{{id}}">{{strDrink}}</a>
-
-            
-          
-            
-        </li>
-   </ul>
-
-{{/each}}
-
-   <div>
-    <a class="btn btn-light" href="/myaccount/new-cocktail" role="button">Add new cocktail</a>
-</div>
-
+    <h2 id="cocktail-name">MY COCKTAILS: </h2>
+    {{#each cocktail}}
+    <ul>
+      <li>
+        <a href="/myaccount/mycocktails/details/{{id}}">{{strDrink}}</a>
+      </li>
+    </ul>
+    {{/each}}
+    <div>
+      <a class="create-btn" href="/myaccount/new-cocktail" role="button">Add new cocktail</a>
+    </div>
   </div>
-
-
-  
-
 </div>
-
-

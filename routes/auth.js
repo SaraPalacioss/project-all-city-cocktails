@@ -84,6 +84,14 @@ router.get('/cocktails/no-alcohol', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/no-alcohol', { user: req.user })
 })
 
+//GET ALL COCKTAILS
+
+router.get('/cocktails/allcocktails/', ensureLogin.ensureLoggedIn(), (req, res)=>{
+  res.render('auth/Cocktails/all-cocktails', { user: req.user })
+})
+
+
+
 //GET COCKTAILS/ALCOHOL/DETAILS
 router.get('/cocktails/alcohol/details/:id', ensureLogin.ensureLoggedIn(), (req, res)=>{
   res.render('auth/Cocktails/details', { user: req.user })
@@ -137,7 +145,7 @@ router.get('/myaccount/mycocktails/details/:id',ensureLogin.ensureLoggedIn(), (r
   const id = req.params.id
   Cocktails.findById(id)
   .then((result)=>{
-    res.render('auth/MyAccount/details', result);
+    res.render('auth/MyAccount/details', {cocktail: result, user: req.user});
   })
 
   .catch((err)=> {
@@ -154,7 +162,7 @@ router.get('/myaccount/mycocktails/details/:id/edit',ensureLogin.ensureLoggedIn(
   const id = req.params.id
   Cocktails.findById(id)
   .then((result)=>{
-      res.render('auth/MyAccount/editCocktailForm', result)
+      res.render('auth/MyAccount/editCocktailForm', {cocktail: result, user: req.user})
   })
   .catch((err)=>{
       console.log(err)
