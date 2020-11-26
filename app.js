@@ -111,7 +111,3 @@ app.use('/', auth);
 module.exports = app;
 
 
-// Listener
-app.listen(process.env.PORT, ()=>{
-  console.log(chalk.green.inverse.bold(`Conectado al puerto ${process.env.PORT}`));
-});
