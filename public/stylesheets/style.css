@@ -16,7 +16,6 @@ body {
   font-family: "Belleza", sans-serif;
   text-align: center;
   color: white;
-  height: 1050p;
 }
 
 html {
@@ -65,6 +64,31 @@ footer {
   margin-left: 20%;
 }
 
+#captions-loading {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 20px;
+  width: 60%;
+  height: 90%;
+  margin-left: 20%;
+}
+
+#captions-cocktails {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+#captions-cocktails-loading {
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
 .search {
   width: 155px;
   height: 258px;
@@ -92,7 +116,7 @@ footer {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  margin-top: 10%;
+  margin-top: 55%;
   padding: 20px;
   width: 1000px;
   background: rgba(245, 245, 245, 0.651);
@@ -111,10 +135,9 @@ footer {
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  margin-top: 10%;
+  margin-top: 50%;
   padding: 20px;
   width: 650px;
-
   background: rgba(245, 245, 245, 0.651);
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
@@ -139,39 +162,51 @@ footer {
   font-size: 18px;
 }
 
+.size-box {
+  width: 500px;
+  height: 400px;
+}
+
 .background-details-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-content: flex-start;
   text-align: left;
   padding-left: 2%;
   font-family: "Gochi Hand", cursive;
 }
 
-
-.background-details-info h1 {
-  font-size: 1.4rem;
-}
-
-.mycocktails-photo {
-  width: 400px;
-  height: 500px;
+.myprofile {
+  display: flex;
+  margin-top: 50%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  text-align: left;
+  font-family: "Gochi Hand", cursive;
 }
 
 .background-details-info h2 {
   font-size: 1rem;
   text-decoration: underline;
+  font-family: "Gochi Hand", cursive;
 }
 
-#cocktail-img {
+#cocktail-img img {
   width: 450px;
   height: 450px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
 }
 
 #cocktail-img2 img {
   width: 400px;
   height: 500px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
 }
 
 #background-logo {
@@ -209,8 +244,6 @@ footer {
   align-content: flex-start;
   align-items: center;
 }
-
-
 
 .btn-auth:hover {
   background: rgba(198, 201, 206, 0.97);
@@ -364,14 +397,6 @@ a:hover {
   justify-content: center;
 }
 
-.mycocktails-form {
-  display: flex;
-  flex-direction: column;
-  font-family: "Gochi Hand", cursive;
-}
-
-
-
 .basic-info {
   display: flex;
   flex-direction: row;
@@ -399,11 +424,6 @@ a:hover {
   justify-content: space-around;
   align-items: center;
   align-content: center;
-}
-
-.background-details-info h2 {
-  font-family: "Gochi Hand";
-  font-size: 25px;
 }
 
 .create-btn {
@@ -447,7 +467,75 @@ a:hover {
 }
 
 form {
-  border:none;
+  border: none;
   outline: none;
 }
 
+.loader,
+.loader:before,
+.loader:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #ffffff;
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: "";
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+.mycocktails-photo {
+  width: 400px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+}

@@ -1,7 +1,9 @@
-<div class="background-form background-details-info">
+<div class="background-form  myprofile">
   <div id="background-logo"><img id="logo" src="/images/Logo.png" alt="logo"></div>
 
   {{#if user}}
+  
+<div>
 
   <p>Name: {{user.name}}</p>
   <p>Lastname: {{user.lastName}}</p>
@@ -9,5 +11,6 @@
 
   {{/if}}
 
-  <button type="button" class="create-btn"><a href="/login/edit">Edit profile</a></button>
+</div>
+
 </div>

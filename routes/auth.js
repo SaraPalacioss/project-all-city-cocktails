@@ -234,6 +234,7 @@ router.get(
     const id = req.params.id;
     Cocktails.findById(id)
       .then((result) => {
+        console.log(res)
         res.render("auth/MyAccount/editCocktailForm", {
           cocktail: result,
           user: req.user,
@@ -280,5 +281,6 @@ router.post(
       });
   }
 );
+
 
 module.exports = router;

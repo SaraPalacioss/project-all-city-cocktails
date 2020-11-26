@@ -1,8 +1,7 @@
-// SCRIPT FOR HOME VIEW:
-
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+
     //Search cocktail by name:
 
     document
@@ -38,40 +37,6 @@ document.addEventListener(
   false
 );
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-    //Search cocktail by ingredient:
-
-    document
-      .getElementById("getCocktailByIngredient")
-      .addEventListener("click", () => {
-        const name = document.getElementById("getCocktailByIngredientInput")
-          .value;
-        if (name === "") {
-          document.getElementById("noIngredientChecker").innerText =
-            "Enter some name";
-        } else {
-          axios
-            .get(
-              "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?i=" +
-                name
-            )
-            .then((result) => {
-              document.getElementById("resultByIngredient").innerText = "";
-              result.data.drinks.forEach((cocktail) => {
-                const li = document.createElement("li");
-                li.innerHTML = cocktail.strDrink;
-                document.getElementById("resultByIngredient").append(li);
-              });
-            })
-            .catch((error) => console.log(error));
-        }
-      });
-  },
-  false
-);
-
 
 //List of all cocktails:
 
@@ -79,9 +44,7 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
     axios
-      .get(
-        "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s="
-      )
+      .get("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=")
       .then((result) => {
         document.getElementById("allcocktails").innerText = "";
         result.data.drinks.forEach((cocktail) => {
@@ -94,14 +57,14 @@ document.addEventListener(
       </div>`;
           document.getElementById("allcocktails").append(p);
         });
+        document.getElementById("captions-cocktails-loading").remove();
+        document.getElementById("captions-cocktails").style.visibility =
+          "visible";
       })
       .catch((error) => console.log(error));
   },
   false
 );
-
-
-
 
 
 //List of non alcohol cocktails:
@@ -125,11 +88,15 @@ document.addEventListener(
       </div>`;
           document.getElementById("resultByNoAlcohol").append(p);
         });
+        document.getElementById("captions-cocktails-loading").remove();
+        document.getElementById("captions-cocktails").style.visibility =
+          "visible";
       })
       .catch((error) => console.log(error));
   },
   false
 );
+
 
 //List of alcohol cocktails:
 
@@ -152,11 +119,16 @@ document.addEventListener(
       </div>`;
           document.getElementById("resultByAlcohol").append(p);
         });
+        document.getElementById("captions-cocktails-loading").remove();
+        document.getElementById("captions-cocktails").style.visibility =
+          "visible";
       })
       .catch((error) => console.log(error));
   },
   false
 );
+
+// Cocktail details:
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -227,11 +199,12 @@ document.addEventListener(
         let i = 0;
         let j = 0;
         let li = "";
+        let space = " ";
 
         while (ingredientsArr[i] !== null && i < 15) {
           while (meassureArr[j] !== null && i < 15) {
             li = document.createElement("li");
-            li.innerHTML = meassureArr[j] + ingredientsArr[i];
+            li.innerHTML = meassureArr[j] + space + ingredientsArr[i];
             document.getElementById("resultIngredients").append(li);
             i++;
             j++;
@@ -243,7 +216,7 @@ document.addEventListener(
   false
 );
 
-// SCRIPT FOR HOME VIEW:
+// Home random selection
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -254,19 +227,12 @@ document.addEventListener(
       )
       .then((result) => {
         document.getElementById("caption-img-1").src =
-				  result.data.drinks[0].strDrinkThumb;
-				
-
-
-		
-
-
+          result.data.drinks[0].strDrinkThumb;
         document.getElementById(
           "caption-h5-1"
         ).href = `/cocktails/details/${result.data.drinks[0].idDrink}`;
         document.getElementById("caption-h5-1").innerHTML =
           result.data.drinks[0].strDrink;
-
         document.getElementById("caption-img-2").src =
           result.data.drinks[1].strDrinkThumb;
         document.getElementById(
@@ -274,7 +240,6 @@ document.addEventListener(
         ).href = `/cocktails/details/${result.data.drinks[1].idDrink}`;
         document.getElementById("caption-h5-2").innerHTML =
           result.data.drinks[1].strDrink;
-
         document.getElementById("caption-img-3").src =
           result.data.drinks[2].strDrinkThumb;
         document.getElementById(
@@ -290,18 +255,13 @@ document.addEventListener(
         ).href = `/cocktails/details/${result.data.drinks[3].idDrink}`;
         document.getElementById("caption-h5-4").innerHTML =
           result.data.drinks[3].strDrink;
+        document.getElementById("captions-loading").remove();
+        document.getElementById("captions").style.visibility = "visible";
       })
       .catch((error) => console.log(error));
-	},
-	
-
-	
-
+  },
   false
 );
-
-
-
 
 
 

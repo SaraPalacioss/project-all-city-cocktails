@@ -6,7 +6,7 @@ Esta Web App nos permite adentrarnos en el mundo de los cocktales. No solo podem
 
 Se trata de una primera versión por lo que está sujeta a numerosas mejoras.
 
-Heroku URL https://sarapalacioss.github.io/funko-hollywood-trivial/
+Heroku URL https://all-city-cocktails.herokuapp.com/
 
 ![ScreenShot](https://raw.githubusercontent.com/SaraPalacioss/project-all-city-cocktails/main/public/images/Screenshoot.png)
 
@@ -19,16 +19,18 @@ Sigue estas instrucciones para poder obtener una copia del proyecto en funcionam
 - Clone this repo
 
 ## Despliegue 📦
-Agrega notas adicionales sobre como hacer deploy
+
+Consulta la documentación oficial de Heroku para obtener toda la información:
+
+* [Heroku](https://www.heroku.com/) 
 
 ## Construido con 🛠️
 
 En este proyecto se ha utilizado Vanilla Javascript y algunas herramientas para poder dar formato a los botones e imágenes:
 
-* [Funko](https://www.funko.com/) - Imágenes funko
-* [img2go](https://www.img2go.com/es/cambiar-tamano-de-imagen) - Ajuste de resolución en imágenes
-* [CSS Button Creator](https://cssbuttoncreator.com/) - Generador de diseño CSS para botones
-* [uiGradients](https://uigradients.com/) - Generador de backgrounds con gradiante
+* [Bootstrap](https://www.getbootstrap.com//) - Diseño imágenes
+* [Bulma](https://www.bulma.com/) - Barra de navegación
+* [Fontawsome](https://https://fontawesome.com/) - Diseño barra búsqueda
 
 
 ## Autor✒️

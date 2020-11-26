@@ -1,16 +1,12 @@
-<div class="background-details">
-     <div class="background-details-photo">
-          <div id="cocktail-img">
-               <img src="/images/pina colada.jpeg" alt="cosmopolitan-img">
-          </div>
-     </div>
+<div class="background-details-cocktail">
      <div class="background-details-info">
           <h2 id="cocktail-name">{{cocktail.strDrink}}</h2>
+          <br>
           <p>Category: {{cocktail.strCategory}}</p>
           <p>Alcoholic: {{cocktail.strAlcoholic}}</p>
           <p>Glass: {{cocktail.strGlass}}</p>
-          <p>Instructions: {{cocktail.strInstructions}}</p>
-          <p>Ingredients:
+          <br>
+          <h2>Ingredients:</h2>
           <ul>
                <li>{{cocktail.strMeasure1}} {{cocktail.strIngredient1}}</li>
                <li>{{cocktail.strMeasure2}} {{cocktail.strIngredient2}}</li>
@@ -28,25 +24,16 @@
                <li>{{cocktail.strMeasure14}} {{cocktail.strIngredient14}}</li>
                <li>{{cocktail.strMeasure15}} {{cocktail.strIngredient14}}</li>
           </ul>
-          <p>Created: {{dateModified}}</p>
-
-          
-               
-                    <button type="button" class="create-btn"><a
-                              href="/myaccount/mycocktails/details/{{cocktail.id}}/edit">Edit cocktail</a></button>
-              
-             
-                    <form action="/myaccount/mycocktails/details/{{cocktail.id}}/delete" method="POST">
-                         <button class="create-btn">Delete cocktail</button>
-                    </form>
-             
-               <br>
-             
-                    <button type="button" class="create-btn"><a href="/myaccount/mycocktails">View all</a></button>
-          
-
-         
+          <br>
+          <h2>Instructions: </h2>
+          <div>{{cocktail.strInstructions}}</div>
+          <button type="button" class="create-btn"><a href="/myaccount/mycocktails/details/{{cocktail.id}}/edit">Edit
+                    cocktail</a></button>
+          <form action="/myaccount/mycocktails/details/{{cocktail.id}}/delete" method="POST">
+               <button class="create-btn">Delete cocktail</button>
+          </form>
+          <br>
+          <button type="button" class="create-btn"><a href="/myaccount/mycocktails">View all</a></button>
      </div>
 </div>
-
-
+</div>
