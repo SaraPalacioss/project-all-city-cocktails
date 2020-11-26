@@ -8,7 +8,7 @@ Se trata de una primera versión por lo que está sujeta a numerosas mejoras.
 
 Heroku URL https://sarapalacioss.github.io/funko-hollywood-trivial/
 
-![ScreenShot](https://raw.githubusercontent.com/SaraPalacioss/funko-hollywood-trivial/main/images/screenshoot.png)
+![ScreenShot](https://raw.githubusercontent.com/SaraPalacioss/project-all-city-cocktails/main/public/images/Screenshoot.png)
 
 
 ## Comenzando 🚀
@@ -18,6 +18,8 @@ Sigue estas instrucciones para poder obtener una copia del proyecto en funcionam
 - Fork this repo
 - Clone this repo
 
+## Despliegue 📦
+Agrega notas adicionales sobre como hacer deploy
 
 ## Construido con 🛠️
 
