@@ -177,6 +177,18 @@ footer {
   font-family: "Gochi Hand", cursive;
 }
 
+
+.background-details-info-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  width: 550px;
+  text-align: left;
+  padding-left: 2%;
+  font-family: "Gochi Hand", cursive;
+}
+
 .myprofile {
   display: flex;
   margin-top: 50%;
@@ -539,3 +551,4 @@ form {
   border-radius: 50%;
   background-size: 100% auto;
 }
+
