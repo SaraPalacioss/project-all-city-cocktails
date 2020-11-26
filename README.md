@@ -2,7 +2,7 @@
 
 Esta es mi primera Web App. Al igual que mi primer proyecto (https://sarapalacioss.github.io/funko-hollywood-trivial/), ha sido creada para el bootcamp de Web Development de Ironhack Madrid. 
 
-Esta Web App nos permite adentrarnos en el mundo de los cocktales. No solo podemos acceder a contenido ya creado sino que también podemos disponer de nuestra propia area personal como usuarios para poder crear, leer, actualizar y borrar nuestras propias creaciones. 
+Esta Web App nos permite adentrarnos en el mundo de los cockteles. No solo podemos acceder a contenido ya creado sino que también podemos disponer de nuestra propia area personal como usuarios para poder crear, leer, actualizar y borrar nuestras propias creaciones. 
 
 Se trata de una primera versión por lo que está sujeta a numerosas mejoras.
 
@@ -26,9 +26,8 @@ Consulta la documentación oficial de Heroku para obtener toda la información:
 
 ## Construido con 🛠️
 
-En este proyecto se ha utilizado Vanilla Javascript y algunas herramientas para poder dar formato a los botones e imágenes:
-
-* [Bootstrap](https://www.getbootstrap.com//) - Diseño imágenes
+* [thecocktaildb](https://www.thecocktaildb.com/) - API
+* [Bootstrap](https://www.getbootstrap.com/) - Diseño imágenes
 * [Bulma](https://www.bulma.com/) - Barra de navegación
 * [Fontawsome](https://https://fontawesome.com/) - Diseño barra búsqueda
 
