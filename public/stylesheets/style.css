@@ -189,6 +189,10 @@ footer {
   font-family: "Gochi Hand", cursive;
 }
 
+.background-details-info-details h2{
+  text-decoration: underline;
+}
+
 .myprofile {
   display: flex;
   margin-top: 50%;
