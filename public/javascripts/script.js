@@ -1,7 +1,6 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-
     //Search cocktail by name:
 
     document
@@ -37,7 +36,6 @@ document.addEventListener(
   false
 );
 
-
 //List of all cocktails:
 
 document.addEventListener(
@@ -56,6 +54,7 @@ document.addEventListener(
         </div>
       </div>`;
           document.getElementById("allcocktails").append(p);
+         
         });
         document.getElementById("captions-cocktails-loading").remove();
         document.getElementById("captions-cocktails").style.visibility =
@@ -65,7 +64,6 @@ document.addEventListener(
   },
   false
 );
-
 
 //List of non alcohol cocktails:
 
@@ -87,6 +85,7 @@ document.addEventListener(
         </div>
       </div>`;
           document.getElementById("resultByNoAlcohol").append(p);
+        
         });
         document.getElementById("captions-cocktails-loading").remove();
         document.getElementById("captions-cocktails").style.visibility =
@@ -96,7 +95,6 @@ document.addEventListener(
   },
   false
 );
-
 
 //List of alcohol cocktails:
 
@@ -118,6 +116,7 @@ document.addEventListener(
         </div>
       </div>`;
           document.getElementById("resultByAlcohol").append(p);
+   
         });
         document.getElementById("captions-cocktails-loading").remove();
         document.getElementById("captions-cocktails").style.visibility =
@@ -127,6 +126,7 @@ document.addEventListener(
   },
   false
 );
+
 
 // Cocktail details:
 
@@ -141,6 +141,8 @@ document.addEventListener(
         `https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${id}`
       )
       .then((result) => {
+        console.log(result)
+
         let cocktailName = result.data.drinks[0].strDrink;
         let cocktailId = result.data.drinks[0].idDrink;
         let cocktailCategory = result.data.drinks[0].strCategory;
@@ -148,6 +150,8 @@ document.addEventListener(
         let cocktailInstructions = result.data.drinks[0].strInstructions;
         let cocktailImg = result.data.drinks[0].strDrinkThumb;
 
+        console.log(id)
+        
         document.getElementById("cocktail-name").innerText = cocktailName;
         document.getElementById("cocktail-id").innerText = cocktailId;
         document.getElementById(
@@ -197,18 +201,20 @@ document.addEventListener(
         meassureArr.push(result.data.drinks[0].strMeasure15);
 
         let i = 0;
-        let j = 0;
         let li = "";
         let space = " ";
 
-        while (ingredientsArr[i] !== null && i < 15) {
-          while (meassureArr[j] !== null && i < 15) {
+        while ((ingredientsArr[i] !== null || meassureArr[i] !== null) && i< 15)  {
+          
             li = document.createElement("li");
-            li.innerHTML = meassureArr[j] + space + ingredientsArr[i];
+            if(meassureArr !== null) {
+              li.innerHTML = meassureArr[i]
+            }
+            if(ingredientsArr[i] !== null) {
+              li.innerHTML = li.innerHTML + space + ingredientsArr[i]
+            }
             document.getElementById("resultIngredients").append(li);
             i++;
-            j++;
-          }
         }
       })
       .catch((error) => console.log(error));
@@ -262,6 +268,3 @@ document.addEventListener(
   },
   false
 );
-
-
-
