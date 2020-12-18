@@ -6,9 +6,9 @@ Esta Web App nos permite adentrarnos en el mundo de los cockteles. No solo podem
 
 Se trata de una primera versión por lo que está sujeta a numerosas mejoras.
 
-Heroku URL https://all-city-cocktails.herokuapp.com/
+Netlify URL https://thegoodfilm.netlify.app
 
-![ScreenShot](https://raw.githubusercontent.com/SaraPalacioss/project-all-city-cocktails/main/public/images/Screenshoot.png)
+![ScreenShot](https://raw.githubusercontent.com/thegoodfilm/the-good-film-frontend/main/public/Screenshot_.png)
 
 
 ## Comenzando 🚀
@@ -20,17 +20,15 @@ Sigue estas instrucciones para poder obtener una copia del proyecto en funcionam
 
 ## Despliegue 📦
 
-Consulta la documentación oficial de Heroku para obtener toda la información:
+Consulta la documentación oficial de Netlify para obtener toda la información:
 
-* [Heroku](https://www.heroku.com/) 
+* [Netlify](https://www.netlify.com/) 
 
 ## Construido con 🛠️
 
-* [thecocktaildb](https://www.thecocktaildb.com/) - API
-* [Bootstrap](https://www.getbootstrap.com/) - Diseño imágenes
-* [Bulma](https://www.bulma.com/) - Barra de navegación
-* [Fontawsome](https://https://fontawesome.com/) - Diseño barra búsqueda
-
+* [REACT](https://es.reactjs.org/) - Libreria
+* [themoviedb](https://www.themoviedb.org/) - API
+* [React Bootstrap](https://react-bootstrap.github.io/) - Diseño
 
 ## Autor✒️
 
