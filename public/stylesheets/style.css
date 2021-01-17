@@ -55,7 +55,6 @@ footer {
   }
 }
 
-
 #carousel {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -136,10 +135,11 @@ footer {
   flex-direction: row;
   justify-content: space-evenly;
   position: absolute;
+  padding: 60px 0;
   left: 50%;
   transform: translate(-50%, 0);
   margin-top: 55%;
-  padding: 20px;
+
   width: 1000px;
   background: rgba(245, 245, 245, 0.651);
   border-radius: 10px 10px 10px 10px;
@@ -150,6 +150,23 @@ footer {
   color: black;
 }
 
+.background-details-edit {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 1000px;
+  background: rgba(245, 245, 245, 0.651);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
+  color: black;
+  padding: 20px 0;
+}
+
 .background-details-cocktail {
   display: flex;
   flex-direction: row;
@@ -158,13 +175,52 @@ footer {
   left: 50%;
   transform: translate(-50%, 0);
   margin-top: 50%;
-  padding: 20px;
+  /* padding: 20px; */
   width: 650px;
   background: rgba(245, 245, 245, 0.651);
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
   border: 0px none #ffffff;
+  color: black;
+}
+
+.background-details-api{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 800px;
+  background: rgba(245, 245, 245, 0.651);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
+  color: black;
+ 
+}
+
+
+.background-cocktail {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 800px;
+  background: rgba(245, 245, 245, 0.651);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none #ffffff;
+  color: black;
+  padding: 20px 0;
+}
+
+.background-cocktail a {
   color: black;
 }
 
@@ -199,7 +255,6 @@ footer {
   font-family: "Gochi Hand", cursive;
 }
 
-
 .background-details-info-details {
   display: flex;
   flex-direction: column;
@@ -211,7 +266,7 @@ footer {
   font-family: "Gochi Hand", cursive;
 }
 
-.background-details-info-details h2{
+.background-details-info-details h2 {
   text-decoration: underline;
 }
 
@@ -234,9 +289,10 @@ footer {
 #cocktail-img img {
   width: 450px;
   height: 450px;
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
+  border-color: 1px solid black;
+  border-radius: 10px 0px 0px 10px;
+  -moz-border-radius: 10px 0px 0px 10px;
+  -webkit-border-radius: 10px 0px 0px 10px;
 }
 
 #cocktail-img2 img {
@@ -569,12 +625,10 @@ form {
   }
 }
 
-.mycocktails-photo {
+.mycocktails-photo img {
   width: 400px;
-  height: 500px;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  border-radius: 50%;
-  background-size: 100% auto;
+  height: 525px;
+  border-radius: 10px 0px 0px 10px;
+  -moz-border-radius: 10px 0px 0px 10px;
+  -webkit-border-radius: 10px 0px 0px 10px;
 }
-
